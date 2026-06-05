@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merch — Grey Space Recordings</title>
+  <meta name="description" content="Grey Space Recordings merchandise — clothing, vinyl, and accessories.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── MERCH GRID ─── */
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .merch-card {
+      background: var(--bg);
+      cursor: pointer;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .merch-card:hover { background: var(--bg-2); }
+
+    .merch-img-wrap { overflow: hidden; aspect-ratio: 1; }
+
+    .merch-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.1);
+      transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .merch-card:hover .merch-img {
+      filter: grayscale(20%) contrast(1.04);
+      transform: scale(1.04);
+    }
+
+    .merch-info {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .merch-category {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .merch-name {
+      font-family: var(--head);
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .merch-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .merch-price {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .merch-cta {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.875rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .merch-card:hover .merch-cta {
+      border-color: rgba(0, 51, 255, 0.5);
+      color: var(--accent);
+    }
+
+    .merch-cta.sold-out { color: var(--faint); border-color: rgba(255,255,255,0.05); pointer-events: none; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .merch-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .merch-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html" class="active">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Grey Space Recordings</p>
+    <h1 class="page-hero-title">Merch</h1>
+  </div>
+
+  <!-- ─── CLOTHING ─── -->
+  <section class="section reveal">
+    <div class="section-header">
+      <h2 class="section-title">Clothing</h2>
+      <span class="section-meta">03 items</span>
+    </div>
+    <div class="merch-grid">
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-tee1/600/600" alt="GSR Logo Tee" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">T-Shirt</p>
+          <p class="merch-name">GSR Logo Tee</p>
+          <div class="merch-footer">
+            <span class="merch-price">£25.00</span>
+            <a href="contact.html" class="merch-cta">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-hood/600/600" alt="GSR Hoodie" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Hoodie</p>
+          <p class="merch-name">GSR Hoodie</p>
+          <div class="merch-footer">
+            <span class="merch-price">£55.00</span>
+            <a href="contact.html" class="merch-cta">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-cap/600/600" alt="GSR Cap" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Cap</p>
+          <p class="merch-name">GSR Cap</p>
+          <div class="merch-footer">
+            <span class="merch-price">£22.00</span>
+            <a href="contact.html" class="merch-cta sold-out">Sold Out</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── RECORDS & ACCESSORIES ─── -->
+  <section class="section reveal">
+    <div class="section-header">
+      <h2 class="section-title">Records &amp;<br>Accessories</h2>
+      <span class="section-meta">03 items</span>
+    </div>
+    <div class="merch-grid">
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-vinyl1/600/600" alt="Grey Matter LP — Vinyl" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Vinyl — GSR014</p>
+          <p class="merch-name">Grey Matter LP</p>
+          <div class="merch-footer">
+            <span class="merch-price">£18.00</span>
+            <a href="contact.html" class="merch-cta">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-tote/600/600" alt="GSR Tote Bag" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Accessory</p>
+          <p class="merch-name">GSR Tote Bag</p>
+          <div class="merch-footer">
+            <span class="merch-price">£14.00</span>
+            <a href="contact.html" class="merch-cta">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img-wrap">
+          <img class="merch-img" src="https://picsum.photos/seed/gsr-merch-vinyl2/600/600" alt="Signal Loss EP — Vinyl" loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Vinyl — GSR013</p>
+          <p class="merch-name">Signal Loss EP</p>
+          <div class="merch-footer">
+            <span class="merch-price">£12.00</span>
+            <a href="contact.html" class="merch-cta">Order</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+      <a href="#">Discogs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e], obs) => {
+        if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
+      }, { threshold: 0.07 }).observe(el);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Grey Space Recordings</title>
+  <meta name="description" content="Photos from Grey Space Recordings events and sessions.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── FILTER TABS ─── */
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .filter-tab {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .filter-tab:hover { color: var(--text); }
+    .filter-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+    /* ─── GALLERY GRID ─── */
+    .gallery-grid {
+      columns: 3;
+      gap: 1px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      overflow: hidden;
+      margin-bottom: 1px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-img {
+      width: 100%;
+      display: block;
+      filter: grayscale(80%) contrast(1.1);
+      transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      filter: grayscale(0%) contrast(1.04);
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .gallery-grid { columns: 2; }
+      .filter-tabs { flex-wrap: wrap; }
+      .filter-tab { padding: 0.75rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Grey Space Recordings</p>
+    <h1 class="page-hero-title">Gallery</h1>
+  </div>
+
+  <section class="section reveal">
+    <div class="filter-tabs" role="tablist">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="events">Events</button>
+      <button class="filter-tab" data-filter="studio">Studio</button>
+      <button class="filter-tab" data-filter="misc">Misc</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery">
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g1/600/750" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">The Bell — Apr 2026</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g2/600/400" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">Subterranean III — May 2026</span>
+      </div>
+
+      <div class="gallery-item" data-category="studio">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g3/600/500" alt="Studio photo" loading="lazy">
+        <span class="gallery-caption">Studio Session</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g4/600/600" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">GSR Launch — Oct 2025</span>
+      </div>
+
+      <div class="gallery-item" data-category="misc">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g5/600/900" alt="Misc photo" loading="lazy">
+        <span class="gallery-caption">Grey Matter LP Press</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g6/600/450" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">Bday Bash — May 2026</span>
+      </div>
+
+      <div class="gallery-item" data-category="studio">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g7/600/600" alt="Studio photo" loading="lazy">
+        <span class="gallery-caption">Kestrel — Session</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g8/600/700" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">Corsica Studios — May 2026</span>
+      </div>
+
+      <div class="gallery-item" data-category="misc">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g9/600/400" alt="Misc photo" loading="lazy">
+        <span class="gallery-caption">Vinyl Drop — GSR013</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g10/600/550" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">The Mill — Mar 2026</span>
+      </div>
+
+      <div class="gallery-item" data-category="studio">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g11/600/800" alt="Studio photo" loading="lazy">
+        <span class="gallery-caption">Morse — Recording</span>
+      </div>
+
+      <div class="gallery-item" data-category="events">
+        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g12/600/450" alt="Event photo" loading="lazy">
+        <span class="gallery-caption">Subterranean I — Nov 2025</span>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+      <a href="#">Discogs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e], obs) => {
+        if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
+      }, { threshold: 0.07 }).observe(el);
+    });
+
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

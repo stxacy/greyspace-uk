@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Grey Space Recordings</title>
+  <meta name="description" content="Grey Space Recordings — UK underground music collective and label.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── STORY ─── */
+    .story-inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .story-quote {
+      font-family: var(--head);
+      font-size: clamp(2.5rem, 4.5vw, 5rem);
+      letter-spacing: 0.01em;
+      line-height: 0.95;
+      margin-bottom: 3rem;
+    }
+
+    .story-quote em { color: var(--accent); font-style: normal; }
+
+    .story-body { display: flex; flex-direction: column; gap: 1.5rem; }
+    .story-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.9; }
+    .story-body p strong { color: var(--text); font-weight: 500; }
+
+    /* ─── STATS ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .stat { background: var(--bg); padding: 2rem 1.75rem; }
+
+    .stat-num {
+      font-family: var(--head);
+      font-size: 3.5rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── RESIDENTS ─── */
+    .residents-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .resident-row {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .resident-row:hover { background: var(--bg-2); }
+
+    .resident-index {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+      width: 1.5ch;
+      flex-shrink: 0;
+    }
+
+    .resident-img {
+      width: 48px; height: 48px;
+      object-fit: cover;
+      flex-shrink: 0;
+      filter: grayscale(100%) contrast(1.1);
+      transition: filter 0.3s;
+    }
+
+    .resident-row:hover .resident-img { filter: grayscale(0%); }
+
+    .resident-info { flex: 1; }
+
+    .resident-name {
+      font-family: var(--head);
+      font-size: 1.8rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .resident-genre {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .resident-arrow {
+      width: 14px; height: 14px;
+      stroke: var(--faint);
+      flex-shrink: 0;
+      transition: transform 0.2s, stroke 0.2s;
+    }
+
+    .resident-row:hover .resident-arrow { transform: translateX(5px); stroke: var(--accent); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .story-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .residents-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Grey Space Recordings</p>
+    <h1 class="page-hero-title">About</h1>
+  </div>
+
+  <!-- ─── STORY ─── -->
+  <section class="section reveal">
+    <div class="story-inner">
+      <div>
+        <p class="story-quote">
+          Sound built for <em>concrete floors.</em><br>Not streaming dashboards.
+        </p>
+        <div class="story-body">
+          <p>Grey Space Recordings is a UK underground music collective and label. We started in back rooms and warehouse circuits, and we've stayed there by choice.</p>
+          <p>We run nights, press records, and give a platform to the sounds that matter. <strong>No commercial concessions. No A&R gatekeeping. No genre ceiling.</strong></p>
+          <p>Our nights span 140, DNB, grime, garage, and everything that lives in the grey between. The only thing that matters is whether it hits in a dark room at 2am.</p>
+          <p>If you've been there, you already know what we're about.</p>
+        </div>
+      </div>
+      <div class="story-body" style="padding-top:0.5rem;">
+        <p><strong>Label</strong><br>Grey Space Recordings presses limited runs on vinyl and digital. Every release is intentional. No reissues, no remasters — if you missed it, you missed it.</p>
+        <p><strong>Nights</strong><br>Grey Space events are small, dark, and loud. We work with venues that understand what the music needs. Doors are always last minute. Lineups sometimes stay secret.</p>
+        <p><strong>Community</strong><br>The collective runs deeper than the label. Residents, DJs, MCs, and selectors who've been building together since before the bookings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS ─── -->
+  <section class="section reveal">
+    <div class="stats-grid">
+      <div class="stat"><p class="stat-num">014</p><p class="stat-label">Releases</p></div>
+      <div class="stat"><p class="stat-num">6</p><p class="stat-label">Residents</p></div>
+      <div class="stat"><p class="stat-num">2025</p><p class="stat-label">Founded</p></div>
+      <div class="stat"><p class="stat-num">140</p><p class="stat-label">BPM</p></div>
+    </div>
+  </section>
+
+  <!-- ─── RESIDENTS ─── -->
+  <section class="section reveal">
+    <div class="section-header">
+      <h2 class="section-title">Residents</h2>
+      <span class="section-meta">06 artists</span>
+    </div>
+    <div class="residents-grid">
+
+      <div class="resident-row">
+        <span class="resident-index">01</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-kestrel/200/200" alt="Kestrel">
+        <div class="resident-info"><p class="resident-name">Kestrel</p><p class="resident-genre">Liquid / Neuro</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+      <div class="resident-row">
+        <span class="resident-index">02</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-vanta/200/200" alt="Vantablack">
+        <div class="resident-info"><p class="resident-name">Vantablack</p><p class="resident-genre">Neurofunk / 140</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+      <div class="resident-row">
+        <span class="resident-index">03</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-morse/200/200" alt="Morse">
+        <div class="resident-info"><p class="resident-name">Morse</p><p class="resident-genre">Deep / Rollers</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+      <div class="resident-row">
+        <span class="resident-index">04</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-eddic/200/200" alt="Eddic">
+        <div class="resident-info"><p class="resident-name">Eddic</p><p class="resident-genre">Dark / Industrial</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+      <div class="resident-row">
+        <span class="resident-index">05</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-cold/200/200" alt="Coldframe">
+        <div class="resident-info"><p class="resident-name">Coldframe</p><p class="resident-genre">Atmospheric / Minimal</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+      <div class="resident-row">
+        <span class="resident-index">06</span>
+        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-parallax/200/200" alt="Parallax Theory">
+        <div class="resident-info"><p class="resident-name">Parallax Theory</p><p class="resident-genre">Techstep / Crossbreed</p></div>
+        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+      <a href="#">Discogs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e], obs) => {
+        if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
+      }, { threshold: 0.07 }).observe(el);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Grey Space Recordings</title>
+  <meta name="description" content="Contact Grey Space Recordings — bookings, demos, and general enquiries.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── CONTACT LAYOUT ─── */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* ─── FORM ─── */
+    .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .form-label {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 0.875rem;
+      padding: 0.875rem 1rem;
+      width: 100%;
+      transition: border-color 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--accent); }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 7L11 1' stroke='rgba(255,255,255,0.38)' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      cursor: pointer;
+    }
+
+    .form-select option { background: #111; }
+
+    .form-textarea { resize: vertical; min-height: 160px; line-height: 1.7; }
+
+    .form-submit {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--text);
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .form-submit:hover { background: var(--accent); color: var(--text); }
+
+    /* ─── INFO ─── */
+    .contact-info { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 0.25rem; }
+
+    .info-block { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .info-label {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .info-value {
+      font-family: var(--head);
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .info-value a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .info-value a:hover { color: var(--accent); }
+
+    .info-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .info-socials { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .info-socials a {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .info-socials a::before {
+      content: '';
+      width: 14px; height: 1px;
+      background: var(--faint);
+      flex-shrink: 0;
+      transition: background 0.2s, width 0.2s;
+    }
+
+    .info-socials a:hover { color: var(--text); }
+    .info-socials a:hover::before { background: var(--accent); width: 20px; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Grey Space Recordings</p>
+    <h1 class="page-hero-title">Contact</h1>
+  </div>
+
+  <section class="section reveal">
+    <div class="contact-inner">
+
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <select class="form-select" id="subject" name="subject">
+            <option value="general">General Enquiry</option>
+            <option value="booking">Booking</option>
+            <option value="demo">Demo Submission</option>
+            <option value="press">Press / Media</option>
+            <option value="merch">Merch Order</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Your message..." required></textarea>
+        </div>
+
+        <button class="form-submit" type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+
+        <div class="info-block">
+          <p class="info-label">Email</p>
+          <p class="info-value"><a href="mailto:info@greyspacerecordings.com">info@greyspace<br>recordings.com</a></p>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">Bookings</p>
+          <p class="info-note">For DJ bookings and live show enquiries, use the form with subject "Booking" or email directly. Include your date, venue, and capacity.</p>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">Demo Submissions</p>
+          <p class="info-note">We listen to everything sent through the form. Select "Demo Submission" and include a link to your music. No attachments — SoundCloud or Dropbox links only.</p>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">Socials</p>
+          <div class="info-socials">
+            <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+            <a href="#">Bandcamp</a>
+            <a href="#">Soundcloud</a>
+            <a href="#">Discogs</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+      <a href="#">Discogs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e], obs) => {
+        if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
+      }, { threshold: 0.07 }).observe(el);
+    });
+  </script>
+
+</body>
+</html>
