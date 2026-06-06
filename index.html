@@ -351,9 +351,9 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 1.5rem 3.5rem; }
-      .hero-right { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 1.5rem 3.5rem; border-right: none; }
+      .hero-right { display: flex; min-height: 56vw; }
 
       .release-card { grid-template-columns: 110px 1fr; }
       .release-img { width: 110px; height: 110px; }
@@ -374,11 +374,14 @@
     <a href="#" class="nav-logo">
       <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
     </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
+      <li><a href="#releases">Releases</a></li>
+      <li><a href="#artists">Artists</a></li>
       <li><a href="events.html">Events</a></li>
-      <li><a href="merch.html">Merch</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -633,6 +636,14 @@
     }, { threshold: 0.07 });
 
     revealEls.forEach(el => observer.observe(el));
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
   </script>
 
 </body>

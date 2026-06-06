@@ -148,11 +148,14 @@
     <a href="index.html" class="nav-logo">
       <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
     </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#releases">Releases</a></li>
+      <li><a href="index.html#artists">Artists</a></li>
       <li><a href="events.html">Events</a></li>
-      <li><a href="merch.html">Merch</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
@@ -247,6 +250,14 @@
       new IntersectionObserver(([e], obs) => {
         if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
       }, { threshold: 0.07 }).observe(el);
+    });
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
     });
   </script>
 
