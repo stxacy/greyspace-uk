@@ -11,6 +11,7 @@
     /* ─── HERO ─── */
     .hero {
       min-height: 100dvh;
+
       display: grid;
       grid-template-columns: 1fr 38%;
     }
@@ -194,8 +195,9 @@
     /* ─── HERO MOBILE LAYOUT ─── */
     @media (max-width: 1024px) {
       .hero {
-        width: 100vw;
+        width: 100%;
         min-height: 100dvh;
+        min-height: 100svh;
         background: var(--accent);
         display: flex;
         flex-direction: column;
