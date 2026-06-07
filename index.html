@@ -249,7 +249,12 @@
     @media (max-width: 768px) {
       .event-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.25rem 0; }
       .event-badge { display: none; }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-quote { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 2rem; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 1.25rem; }
+      .stat-num { font-size: clamp(1.4rem, 6vw, 2.2rem); }
+      .about-body p { font-size: 0.82rem; line-height: 1.75; }
     }
   </style>
 </head>
@@ -270,11 +275,11 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="/about/">About</a></li>
-      <li><a href="/events/">Events</a></li>
-      <li><a href="/merch/">Merch</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li><a href="about/">About</a></li>
+      <li><a href="events/">Events</a></li>
+      <li><a href="merch/">Merch</a></li>
+      <li><a href="gallery/">Gallery</a></li>
+      <li><a href="contact/">Contact</a></li>
     </ul>
   </nav>
 
@@ -316,7 +321,7 @@
   <section class="section reveal" id="events">
     <div class="section-header">
       <h2 class="section-title">Upcoming</h2>
-      <a href="/events/" class="section-link">All Events</a>
+      <a href="events/" class="section-link">All Events</a>
     </div>
     <div class="events-list">
 
