@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Grey Space Recordings</title>
+  <meta name="robots" content="noindex">
+  <base href="https://stxacy.github.io/greyspace-uk/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Icon%20filled_All%20light.png" type="image/png">
+  <link rel="apple-touch-icon" href="Icon%20filled_All%20light.png">
+  <style>
+    .error-hero {
+      min-height: 100dvh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 8rem 3rem 6rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-bg-num {
+      position: absolute;
+      right: -0.05em;
+      bottom: -0.15em;
+      font-family: var(--head);
+      font-size: clamp(18rem, 45vw, 42rem);
+      font-weight: 400;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+
+    .error-code {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .error-headline {
+      font-family: var(--head);
+      font-size: clamp(5rem, 16vw, 14rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+    }
+
+    .error-sub {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 42ch;
+    }
+
+    .error-cta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--accent);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .error-cta:hover { color: var(--accent); }
+
+    .error-cta::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+      transition: width 0.2s;
+    }
+
+    .error-cta:hover::before { width: 28px; }
+
+    @media (max-width: 768px) {
+      .error-hero { padding: 7rem 1.5rem 4rem; }
+      .error-headline { font-size: clamp(4rem, 16vw, 7rem); margin-bottom: 2rem; }
+      .error-bg-num { font-size: clamp(12rem, 45vw, 18rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="./" class="nav-logo">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
+    </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="about/">About</a></li>
+      <li><a href="events/">Events</a></li>
+      <li><a href="merch/">Merch</a></li>
+      <li><a href="gallery/">Gallery</a></li>
+      <li><a href="contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="error-hero">
+    <span class="error-bg-num" aria-hidden="true">404</span>
+    <p class="error-code">Error 404</p>
+    <h1 class="error-headline">Wrong<br>Frequency</h1>
+    <p class="error-sub">This page doesn't exist — or it did, and now it's gone. Either way, you're in the wrong room.</p>
+    <a href="./" class="error-cta">Back to the mix</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
+    </div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+      <a href="#">Discogs</a>
+    </nav>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>
