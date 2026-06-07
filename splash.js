@@ -4,7 +4,7 @@
   if (!splash) return;
 
   var path = window.location.pathname;
-  var isHome = path === '/' || path.endsWith('/index.html') || path === '';
+  var isHome = path === '/' || path === '/index.html';
   var hasEntered = localStorage.getItem('gsr_entered');
 
   function dismiss() {
