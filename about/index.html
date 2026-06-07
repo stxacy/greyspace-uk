@@ -140,9 +140,15 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
-      .story-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .story-quote { font-size: clamp(1.8rem, 7.5vw, 2.8rem); margin-bottom: 1.75rem; }
+      .story-body p { font-size: 0.82rem; line-height: 1.75; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 1.25rem; }
+      .stat-num { font-size: clamp(1.4rem, 6vw, 2.2rem); }
       .residents-grid { grid-template-columns: 1fr; }
+      .resident-row { padding: 1.25rem 1rem; gap: 1rem; }
+      .resident-name { font-size: 1.5rem; }
     }
   </style>
 </head>
