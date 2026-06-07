@@ -50,7 +50,7 @@
 
     .stat-label {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
@@ -78,7 +78,7 @@
 
     .resident-index {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.1em;
       color: var(--faint);
       width: 1.5ch;
@@ -86,14 +86,12 @@
     }
 
     .resident-img {
-      width: 48px; height: 48px;
+      width: 64px; height: 64px;
       object-fit: cover;
+      object-position: center top;
       flex-shrink: 0;
-      filter: grayscale(100%) contrast(1.1);
-      transition: filter 0.3s;
+      border-radius: 0;
     }
-
-    .resident-row:hover .resident-img { filter: grayscale(0%); }
 
     .resident-info { flex: 1; }
 
@@ -107,7 +105,7 @@
 
     .resident-genre {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -122,6 +120,24 @@
 
     .resident-row:hover .resident-arrow { transform: translateX(5px); stroke: var(--accent); }
 
+    .resident-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .resident-social {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .resident-social:hover { opacity: 0.65; }
+
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
       .story-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -132,23 +148,29 @@
 </head>
 <body>
 
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html#releases">Releases</a></li>
-      <li><a href="index.html#artists">Artists</a></li>
-      <li><a href="events.html">Events</a></li>
       <li><a href="about.html" class="active">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero reveal">
     <p class="page-hero-eyebrow">Grey Space Recordings</p>
     <h1 class="page-hero-title">About</h1>
   </div>
@@ -178,60 +200,46 @@
   <!-- ─── STATS ─── -->
   <section class="section reveal">
     <div class="stats-grid">
-      <div class="stat"><p class="stat-num">014</p><p class="stat-label">Releases</p></div>
-      <div class="stat"><p class="stat-num">6</p><p class="stat-label">Residents</p></div>
       <div class="stat"><p class="stat-num">2025</p><p class="stat-label">Founded</p></div>
-      <div class="stat"><p class="stat-num">140</p><p class="stat-label">BPM</p></div>
+      <div class="stat"><p class="stat-num">Bristol</p><p class="stat-label">UK</p></div>
+      <div class="stat"><p class="stat-num">130–180</p><p class="stat-label">BPM</p></div>
+      <div class="stat"><p class="stat-num">Underground</p><p class="stat-label">Scene</p></div>
     </div>
   </section>
 
   <!-- ─── RESIDENTS ─── -->
   <section class="section reveal">
     <div class="section-header">
-      <h2 class="section-title">Residents</h2>
-      <span class="section-meta">06 artists</span>
+      <h2 class="section-title">GSR Team</h2>
+      <span class="section-meta">02 members</span>
     </div>
     <div class="residents-grid">
 
       <div class="resident-row">
         <span class="resident-index">01</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-kestrel/200/200" alt="Kestrel">
-        <div class="resident-info"><p class="resident-name">Kestrel</p><p class="resident-genre">Liquid / Neuro</p></div>
+        <img class="resident-img" src="images/team/alr.png" alt="ALR">
+        <div class="resident-info">
+          <p class="resident-name">ALR</p>
+          <p class="resident-genre">Co-Owner / Label Manager</p>
+          <div class="resident-socials">
+            <a href="https://www.instagram.com/_alruk_/" class="resident-social" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://soundcloud.com/alrdnb" class="resident-social" target="_blank" rel="noopener">Soundcloud</a>
+          </div>
+        </div>
         <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
       </div>
 
       <div class="resident-row">
         <span class="resident-index">02</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-vanta/200/200" alt="Vantablack">
-        <div class="resident-info"><p class="resident-name">Vantablack</p><p class="resident-genre">Neurofunk / 140</p></div>
-        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="resident-row">
-        <span class="resident-index">03</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-morse/200/200" alt="Morse">
-        <div class="resident-info"><p class="resident-name">Morse</p><p class="resident-genre">Deep / Rollers</p></div>
-        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="resident-row">
-        <span class="resident-index">04</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-eddic/200/200" alt="Eddic">
-        <div class="resident-info"><p class="resident-name">Eddic</p><p class="resident-genre">Dark / Industrial</p></div>
-        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="resident-row">
-        <span class="resident-index">05</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-cold/200/200" alt="Coldframe">
-        <div class="resident-info"><p class="resident-name">Coldframe</p><p class="resident-genre">Atmospheric / Minimal</p></div>
-        <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="resident-row">
-        <span class="resident-index">06</span>
-        <img class="resident-img" src="https://picsum.photos/seed/gsr-art-parallax/200/200" alt="Parallax Theory">
-        <div class="resident-info"><p class="resident-name">Parallax Theory</p><p class="resident-genre">Techstep / Crossbreed</p></div>
+        <img class="resident-img" src="images/team/laza.png" alt="Laza">
+        <div class="resident-info">
+          <p class="resident-name">Laza</p>
+          <p class="resident-genre">Co-Owner / Label Manager</p>
+          <div class="resident-socials">
+            <a href="https://www.instagram.com/laza_uk/" class="resident-social" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://soundcloud.com/josh-payne-2" class="resident-social" target="_blank" rel="noopener">Soundcloud</a>
+          </div>
+        </div>
         <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
       </div>
 
@@ -239,7 +247,7 @@
   </section>
 
   <footer>
-    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <div class="footer-logo"><img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
     <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
     <nav class="footer-socials" aria-label="Social links">
       <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
@@ -249,6 +257,7 @@
     </nav>
   </footer>
 
+  <script src="splash.js"></script>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {

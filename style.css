@@ -27,7 +27,7 @@ body {
 }
 
 /* ─── NAV ─── */
-nav {
+#nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
@@ -39,7 +39,7 @@ nav {
   transition: border-color 0.4s, backdrop-filter 0.4s, background 0.4s;
 }
 
-nav.scrolled {
+#nav.scrolled {
   border-color: var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -53,7 +53,7 @@ nav.scrolled {
 
 .nav-links a {
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -96,7 +96,7 @@ nav.scrolled {
 
 .page-hero-eyebrow {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
@@ -145,7 +145,7 @@ nav.scrolled {
 
 .marquee-item {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.68rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
@@ -186,14 +186,14 @@ nav.scrolled {
 
 .section-meta {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   color: var(--muted);
 }
 
 .section-link {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
@@ -216,7 +216,7 @@ footer {
 
 .footer-copy {
   font-family: var(--mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
   color: var(--faint);
   text-align: center;
@@ -226,7 +226,7 @@ footer {
 
 .footer-socials a {
   font-family: var(--mono);
-  font-size: 0.52rem;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -235,6 +235,125 @@ footer {
 }
 
 .footer-socials a:hover { color: var(--text); }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.94);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover { color: var(--text); }
+
+/* ─── EVENT ACTIONS ─── */
+.event-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+.event-flyer-btn {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(0, 51, 255, 0.4);
+  color: var(--accent);
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.event-flyer-btn:hover {
+  border-color: var(--accent);
+  background: rgba(0, 51, 255, 0.08);
+}
+
+/* ─── COLOUR GALLERY IMAGES ─── */
+.gallery-img.colour { filter: none; }
+.gallery-item:hover .gallery-img.colour { filter: none; }
+
+/* ─── SPLASH ─── */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  cursor: pointer;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash.splash-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-logo-wrap {
+  perspective: 900px;
+}
+
+.splash-logo-spin {
+  animation: gsr-spin3d 12s linear infinite;
+}
+
+@keyframes gsr-spin3d {
+  from { transform: rotateY(0deg)   rotateX(6deg); }
+  to   { transform: rotateY(360deg) rotateX(6deg); }
+}
+
+.splash-logo {
+  width: clamp(100px, 20vw, 160px);
+  height: auto;
+  display: block;
+}
+
+.splash-enter {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  display: none;
+  animation: splash-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes splash-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 1; }
+}
 
 /* ─── SCROLL REVEAL ─── */
 .reveal {
@@ -248,7 +367,7 @@ footer {
 
 /* ─── MOBILE ─── */
 @media (max-width: 768px) {
-  nav { padding: 1.25rem 1.5rem; }
+  #nav { padding: 1.25rem 1.5rem; }
   .nav-hamburger { display: flex; }
   .nav-links {
     display: none;

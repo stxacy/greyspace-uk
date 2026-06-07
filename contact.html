@@ -22,7 +22,7 @@
 
     .form-label {
       font-family: var(--mono);
-      font-size: 0.52rem;
+      font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
@@ -83,7 +83,7 @@
 
     .info-label {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--accent);
@@ -114,7 +114,7 @@
 
     .info-socials a {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
@@ -144,23 +144,29 @@
 </head>
 <body>
 
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html#releases">Releases</a></li>
-      <li><a href="index.html#artists">Artists</a></li>
-      <li><a href="events.html">Events</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero reveal">
     <p class="page-hero-eyebrow">Grey Space Recordings</p>
     <h1 class="page-hero-title">Contact</h1>
   </div>
@@ -202,7 +208,7 @@
 
         <div class="info-block">
           <p class="info-label">Email</p>
-          <p class="info-value"><a href="mailto:info@greyspacerecordings.com">info@greyspace<br>recordings.com</a></p>
+          <p class="info-value"><a href="mailto:info@greyspacerecordings.com">info@greyspacerecordings.com</a></p>
         </div>
 
         <div class="info-block">
@@ -230,7 +236,7 @@
   </section>
 
   <footer>
-    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <div class="footer-logo"><img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
     <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
     <nav class="footer-socials" aria-label="Social links">
       <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
@@ -240,6 +246,7 @@
     </nav>
   </footer>
 
+  <script src="splash.js"></script>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {

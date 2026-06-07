@@ -25,7 +25,7 @@
 
     .hero-eyebrow {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--muted);
@@ -62,30 +62,12 @@
       display: block;
     }
 
-    .hero-cta {
-      margin-top: 3.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.875rem;
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .hero-cta svg { width: 16px; height: 16px; stroke: currentColor; transition: transform 0.2s; }
-    .hero-cta:hover { color: var(--text); }
-    .hero-cta:hover svg { transform: translateX(5px); }
 
     .hero-right {
       background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
     .hero-logo-art {
@@ -96,149 +78,6 @@
       mix-blend-mode: screen;
     }
 
-
-    /* ─── RELEASES ─── */
-    .releases-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .release-card {
-      background: var(--bg);
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      cursor: pointer;
-      overflow: hidden;
-      transition: background 0.2s;
-    }
-
-    .release-card:hover { background: var(--bg-2); }
-
-    .release-img-wrap { overflow: hidden; }
-
-    .release-img {
-      width: 200px;
-      height: 200px;
-      display: block;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(1.1);
-      transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .release-card:hover .release-img {
-      filter: grayscale(20%) contrast(1.04);
-      transform: scale(1.06);
-    }
-
-    .release-info {
-      padding: 1.75rem 2.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-left: 1px solid var(--border);
-    }
-
-    .release-cat {
-      font-family: var(--mono);
-      font-size: 0.5rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .release-title {
-      font-family: var(--head);
-      font-size: 2.25rem;
-      letter-spacing: 0.01em;
-      line-height: 1;
-      color: var(--text);
-      margin-bottom: 0.35rem;
-    }
-
-    .release-artist {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .release-meta {
-      font-family: var(--mono);
-      font-size: 0.5rem;
-      letter-spacing: 0.1em;
-      color: var(--faint);
-    }
-
-    /* ─── ARTISTS ─── */
-    .artists-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .artist-row {
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.75rem 2rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .artist-row:hover { background: var(--bg-2); }
-
-    .artist-index {
-      font-family: var(--mono);
-      font-size: 0.5rem;
-      letter-spacing: 0.1em;
-      color: var(--faint);
-      width: 1.5ch;
-      flex-shrink: 0;
-    }
-
-    .artist-img {
-      width: 48px; height: 48px;
-      object-fit: cover;
-      flex-shrink: 0;
-      filter: grayscale(100%) contrast(1.1);
-      transition: filter 0.3s;
-    }
-
-    .artist-row:hover .artist-img { filter: grayscale(0%); }
-
-    .artist-info { flex: 1; }
-
-    .artist-name {
-      font-family: var(--head);
-      font-size: 1.8rem;
-      letter-spacing: 0.02em;
-      line-height: 1;
-      margin-bottom: 0.2rem;
-    }
-
-    .artist-genre {
-      font-family: var(--mono);
-      font-size: 0.5rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .artist-arrow {
-      width: 14px; height: 14px;
-      stroke: var(--faint);
-      flex-shrink: 0;
-      transition: transform 0.2s, stroke 0.2s;
-    }
-
-    .artist-row:hover .artist-arrow {
-      transform: translateX(5px);
-      stroke: var(--accent);
-    }
 
     /* ─── EVENTS ─── */
     .events-list { display: flex; flex-direction: column; }
@@ -259,7 +98,7 @@
 
     .event-date {
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       letter-spacing: 0.08em;
       color: var(--muted);
     }
@@ -270,11 +109,11 @@
       letter-spacing: 0.02em;
     }
 
-    .event-venue { font-size: 0.82rem; color: var(--muted); }
+    .event-venue { font-size: 0.85rem; color: var(--muted); }
 
     .event-city {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
@@ -282,7 +121,7 @@
 
     .event-badge {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       padding: 0.4rem 1rem;
@@ -337,7 +176,7 @@
 
     .stat-label {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
@@ -349,58 +188,107 @@
     .about-body p strong { color: var(--text); font-weight: 500; }
 
 
-    /* ─── MOBILE ─── */
+    /* ─── MOBILE HERO TEXT (hidden on desktop) ─── */
+    .hero-mobile-label { display: none; }
+
+    /* ─── HERO MOBILE LAYOUT ─── */
+    @media (max-width: 1024px) {
+      .hero {
+        width: 100vw;
+        min-height: 100dvh;
+        background: var(--accent);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 4rem;
+        gap: 2.5rem;
+        grid-template-columns: none;
+      }
+      .hero-left { display: none !important; }
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        background: transparent;
+        padding-top: 0;
+        width: 100%;
+      }
+      .hero-logo-art {
+        position: static;
+        width: 55%;
+        max-width: 240px;
+        mix-blend-mode: normal;
+      }
+      .hero-mobile-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+      }
+      .hero-mobile-eyebrow {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
+      }
+      .hero-mobile-name {
+        font-family: var(--head);
+        font-size: clamp(2.8rem, 10vw, 4.5rem);
+        letter-spacing: 0.03em;
+        line-height: 0.9;
+        color: #ffffff;
+      }
+    }
+
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 7rem 1.5rem 3.5rem; border-right: none; }
-      .hero-right { display: flex; min-height: 56vw; }
-
-      .release-card { grid-template-columns: 110px 1fr; }
-      .release-img { width: 110px; height: 110px; }
-
-      .artists-grid { grid-template-columns: 1fr; }
-
       .event-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.25rem 0; }
       .event-badge { display: none; }
-
       .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
   <!-- ─── NAV ─── -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="#releases">Releases</a></li>
-      <li><a href="#artists">Artists</a></li>
-      <li><a href="events.html">Events</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <div class="hero-left">
+    <div class="hero-left reveal">
       <p class="hero-eyebrow">Underground Music — UK</p>
       <h1 class="hero-headline">Grey<br>Space</h1>
       <span class="hero-sub">Recordings</span>
-      <a href="#releases" class="hero-cta">
-        Explore Releases
-        <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true">
-          <line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/>
-        </svg>
-      </a>
     </div>
     <div class="hero-right">
-      <img class="hero-logo-art" src="greyspace%20logo%20.jpg" alt="" aria-hidden="true">
+      <img class="hero-logo-art" src="Icon%20filled_All%20light.png" alt="" aria-hidden="true">
+      <div class="hero-mobile-label">
+        <p class="hero-mobile-eyebrow">Underground Music — UK</p>
+        <p class="hero-mobile-name">Grey Space<br>Recordings</p>
+      </div>
     </div>
   </section>
 
@@ -411,172 +299,30 @@
       <span class="marquee-item">140 BPM <span class="marquee-dot"></span></span>
       <span class="marquee-item">Underground UK <span class="marquee-dot"></span></span>
       <span class="marquee-item">Grey Space Recordings <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Vinyl &amp; Digital <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Bristol <span class="marquee-dot"></span></span>
       <span class="marquee-item">Live Nights <span class="marquee-dot"></span></span>
       <span class="marquee-item">Drum &amp; Bass <span class="marquee-dot"></span></span>
       <span class="marquee-item">140 BPM <span class="marquee-dot"></span></span>
       <span class="marquee-item">Underground UK <span class="marquee-dot"></span></span>
       <span class="marquee-item">Grey Space Recordings <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Vinyl &amp; Digital <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Bristol <span class="marquee-dot"></span></span>
       <span class="marquee-item">Live Nights <span class="marquee-dot"></span></span>
     </div>
   </div>
-
-  <!-- ─── RELEASES ─── -->
-  <section class="section reveal" id="releases">
-    <div class="section-header">
-      <h2 class="section-title">Latest<br>Releases</h2>
-      <span class="section-meta">014 titles</span>
-    </div>
-    <div class="releases-grid">
-
-      <div class="release-card">
-        <div class="release-img-wrap">
-          <img class="release-img" src="https://picsum.photos/seed/gsr-va-001/600/600" alt="Grey Matter LP" loading="lazy">
-        </div>
-        <div class="release-info">
-          <p class="release-cat">GSR014 — Various Artists</p>
-          <p class="release-title">Grey Matter LP</p>
-          <p class="release-artist">Various Artists</p>
-          <p class="release-meta">Apr 2026 — 12 Tracks — Vinyl / Digital</p>
-        </div>
-      </div>
-
-      <div class="release-card">
-        <div class="release-img-wrap">
-          <img class="release-img" src="https://picsum.photos/seed/gsr-signal-013/600/600" alt="Signal Loss EP" loading="lazy">
-        </div>
-        <div class="release-info">
-          <p class="release-cat">GSR013 — Morse</p>
-          <p class="release-title">Signal Loss EP</p>
-          <p class="release-artist">Morse</p>
-          <p class="release-meta">Mar 2026 — 4 Tracks</p>
-        </div>
-      </div>
-
-      <div class="release-card">
-        <div class="release-img-wrap">
-          <img class="release-img" src="https://picsum.photos/seed/gsr-concrete-012/600/600" alt="Concrete Hymns" loading="lazy">
-        </div>
-        <div class="release-info">
-          <p class="release-cat">GSR012 — Eddic</p>
-          <p class="release-title">Concrete Hymns</p>
-          <p class="release-artist">Eddic</p>
-          <p class="release-meta">Feb 2026 — 5 Tracks</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─── ARTISTS ─── -->
-  <section class="section reveal" id="artists">
-    <div class="section-header">
-      <h2 class="section-title">Artists</h2>
-      <a href="#" class="section-link">Full Roster</a>
-    </div>
-    <div class="artists-grid">
-
-      <div class="artist-row">
-        <span class="artist-index">01</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-kestrel/200/200" alt="Kestrel">
-        <div class="artist-info">
-          <p class="artist-name">Kestrel</p>
-          <p class="artist-genre">Liquid / Neuro</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="artist-row">
-        <span class="artist-index">02</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-vanta/200/200" alt="Vantablack">
-        <div class="artist-info">
-          <p class="artist-name">Vantablack</p>
-          <p class="artist-genre">Neurofunk / 140</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="artist-row">
-        <span class="artist-index">03</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-morse/200/200" alt="Morse">
-        <div class="artist-info">
-          <p class="artist-name">Morse</p>
-          <p class="artist-genre">Deep / Rollers</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="artist-row">
-        <span class="artist-index">04</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-eddic/200/200" alt="Eddic">
-        <div class="artist-info">
-          <p class="artist-name">Eddic</p>
-          <p class="artist-genre">Dark / Industrial</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="artist-row">
-        <span class="artist-index">05</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-cold/200/200" alt="Coldframe">
-        <div class="artist-info">
-          <p class="artist-name">Coldframe</p>
-          <p class="artist-genre">Atmospheric / Minimal</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-      <div class="artist-row">
-        <span class="artist-index">06</span>
-        <img class="artist-img" src="https://picsum.photos/seed/gsr-art-parallax/200/200" alt="Parallax Theory">
-        <div class="artist-info">
-          <p class="artist-name">Parallax Theory</p>
-          <p class="artist-genre">Techstep / Crossbreed</p>
-        </div>
-        <svg class="artist-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ─── EVENTS ─── -->
   <section class="section reveal" id="events">
     <div class="section-header">
       <h2 class="section-title">Upcoming</h2>
-      <span class="section-meta">04 shows</span>
+      <a href="events.html" class="section-link">All Events</a>
     </div>
     <div class="events-list">
 
       <div class="event-row">
-        <span class="event-date">18 Apr 26</span>
-        <span class="event-name">Greyspace Open Decks</span>
-        <span class="event-venue">The Bell</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge sold-out">Sold Out</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">25 Apr 26</span>
-        <span class="event-name">Grey Matter LP Launch</span>
-        <span class="event-venue">Basing House</span>
-        <span class="event-city">Manchester</span>
-        <span class="event-badge">Tickets</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">03 May 26</span>
-        <span class="event-name">Subterranean Series III</span>
-        <span class="event-venue">The Arches</span>
-        <span class="event-city">Glasgow</span>
-        <span class="event-badge">Tickets</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">17 May 26</span>
-        <span class="event-name">All Night — Kestrel</span>
-        <span class="event-venue">Corsica Studios</span>
-        <span class="event-city">London</span>
+        <span class="event-date">27 Jun 26</span>
+        <span class="event-name">Greyspace Cypher</span>
+        <span class="event-venue">Venue TBA</span>
+        <span class="event-city">Bristol</span>
         <span class="event-badge">Tickets</span>
       </div>
 
@@ -591,10 +337,10 @@
           Sound built for <em>concrete floors.</em><br>Not streaming dashboards.
         </p>
         <div class="about-stats">
-          <div class="stat"><p class="stat-num">014</p><p class="stat-label">Releases</p></div>
-          <div class="stat"><p class="stat-num">6</p><p class="stat-label">Residents</p></div>
           <div class="stat"><p class="stat-num">2025</p><p class="stat-label">Founded</p></div>
-          <div class="stat"><p class="stat-num">140</p><p class="stat-label">BPM</p></div>
+          <div class="stat"><p class="stat-num">Bristol</p><p class="stat-label">UK</p></div>
+          <div class="stat"><p class="stat-num">130–180</p><p class="stat-label">BPM</p></div>
+          <div class="stat"><p class="stat-num">Underground</p><p class="stat-label">Scene</p></div>
         </div>
       </div>
       <div class="about-body">
@@ -608,7 +354,7 @@
   <!-- ─── FOOTER ─── -->
   <footer>
     <div class="footer-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </div>
     <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
     <nav class="footer-socials" aria-label="Social links">
@@ -619,6 +365,7 @@
     </nav>
   </footer>
 
+  <script src="splash.js"></script>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {

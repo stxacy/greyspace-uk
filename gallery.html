@@ -17,7 +17,7 @@
 
     .filter-tab {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
@@ -67,7 +67,7 @@
       padding: 1rem;
       background: linear-gradient(transparent, rgba(0,0,0,0.75));
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.6);
@@ -77,11 +77,60 @@
 
     .gallery-item:hover .gallery-caption { opacity: 1; }
 
+    /* ─── GALLERY LIGHTBOX ─── */
+    .gallery-lb-prev,
+    .gallery-lb-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      transition: color 0.2s;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    .gallery-lb-prev { left: 1rem; }
+    .gallery-lb-next { right: 1rem; }
+    .gallery-lb-prev:hover, .gallery-lb-next:hover { color: var(--text); }
+
+    .lightbox-info {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      pointer-events: none;
+    }
+
+    .lightbox-caption {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .lightbox-counter {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+    }
+
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
       .gallery-grid { columns: 2; }
       .filter-tabs { flex-wrap: wrap; }
       .filter-tab { padding: 0.75rem 1rem; }
+      .gallery-lb-prev { left: 0; }
+      .gallery-lb-next { right: 0; }
     }
 
     @media (max-width: 480px) {
@@ -91,23 +140,29 @@
 </head>
 <body>
 
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html#releases">Releases</a></li>
-      <li><a href="index.html#artists">Artists</a></li>
-      <li><a href="events.html">Events</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero reveal">
     <p class="page-hero-eyebrow">Grey Space Recordings</p>
     <h1 class="page-hero-title">Gallery</h1>
   </div>
@@ -115,78 +170,124 @@
   <section class="section reveal">
     <div class="filter-tabs" role="tablist">
       <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="events">Events</button>
-      <button class="filter-tab" data-filter="studio">Studio</button>
-      <button class="filter-tab" data-filter="misc">Misc</button>
+      <button class="filter-tab" data-filter="bday-bash">Bday Bash</button>
     </div>
 
     <div class="gallery-grid" id="gallery">
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g1/600/750" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">The Bell — Apr 2026</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-01.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g2/600/400" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">Subterranean III — May 2026</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-02.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="studio">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g3/600/500" alt="Studio photo" loading="lazy">
-        <span class="gallery-caption">Studio Session</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-03.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g4/600/600" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">GSR Launch — Oct 2025</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-04.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="misc">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g5/600/900" alt="Misc photo" loading="lazy">
-        <span class="gallery-caption">Grey Matter LP Press</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-05.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g6/600/450" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">Bday Bash — May 2026</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-06.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="studio">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g7/600/600" alt="Studio photo" loading="lazy">
-        <span class="gallery-caption">Kestrel — Session</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-07.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g8/600/700" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">Corsica Studios — May 2026</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-08.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="misc">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g9/600/400" alt="Misc photo" loading="lazy">
-        <span class="gallery-caption">Vinyl Drop — GSR013</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-09.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g10/600/550" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">The Mill — Mar 2026</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-10.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="studio">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g11/600/800" alt="Studio photo" loading="lazy">
-        <span class="gallery-caption">Morse — Recording</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-11.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
 
-      <div class="gallery-item" data-category="events">
-        <img class="gallery-img" src="https://picsum.photos/seed/gsr-g12/600/450" alt="Event photo" loading="lazy">
-        <span class="gallery-caption">Subterranean I — Nov 2025</span>
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-12.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
       </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-13.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-14.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-15.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-16.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-17.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-18.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item" data-category="bday-bash">
+        <img class="gallery-img colour" src="images/bday-bash/photo-19.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
 
     </div>
   </section>
 
+  <!-- ─── GALLERY LIGHTBOX ─── -->
+  <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery image">
+    <button class="lightbox-close" id="gallery-lb-close">Close ✕</button>
+    <button class="gallery-lb-prev" id="gallery-lb-prev" aria-label="Previous">&#8592;</button>
+    <img class="lightbox-img" id="gallery-lb-img" src="" alt="">
+    <button class="gallery-lb-next" id="gallery-lb-next" aria-label="Next">&#8594;</button>
+    <div class="lightbox-info">
+      <span class="lightbox-caption" id="gallery-lb-caption"></span>
+      <span class="lightbox-counter" id="gallery-lb-counter"></span>
+    </div>
+  </div>
+
   <footer>
-    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <div class="footer-logo"><img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
     <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
     <nav class="footer-socials" aria-label="Social links">
       <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
@@ -196,6 +297,7 @@
     </nav>
   </footer>
 
+  <script src="splash.js"></script>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -225,6 +327,73 @@
       const open = navLinks.classList.toggle('open');
       hamburger.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
+    });
+
+    // ─── GALLERY LIGHTBOX ───
+    const galleryLightbox = document.getElementById('gallery-lightbox');
+    const galleryLbImg    = document.getElementById('gallery-lb-img');
+    const galleryLbCap    = document.getElementById('gallery-lb-caption');
+    const galleryLbCount  = document.getElementById('gallery-lb-counter');
+    let currentIndex = 0;
+    let visibleItems = [];
+
+    function getVisible() {
+      return Array.from(document.querySelectorAll('.gallery-item'))
+        .filter(el => el.style.display !== 'none');
+    }
+
+    function showSlide(index) {
+      const item = visibleItems[index];
+      galleryLbImg.src = item.querySelector('.gallery-img').src;
+      galleryLbImg.alt = item.querySelector('.gallery-img').alt;
+      const cap = item.querySelector('.gallery-caption');
+      galleryLbCap.textContent = cap ? cap.textContent : '';
+      galleryLbCount.textContent = `${index + 1} / ${visibleItems.length}`;
+      currentIndex = index;
+    }
+
+    function openLightbox(index) {
+      visibleItems = getVisible();
+      showSlide(index);
+      galleryLightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      galleryLightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        visibleItems = getVisible();
+        const idx = visibleItems.indexOf(item);
+        if (idx !== -1) openLightbox(idx);
+      });
+    });
+
+    document.getElementById('gallery-lb-prev').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide((currentIndex - 1 + visibleItems.length) % visibleItems.length);
+    });
+
+    document.getElementById('gallery-lb-next').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide((currentIndex + 1) % visibleItems.length);
+    });
+
+    document.getElementById('gallery-lb-close').addEventListener('click', closeLightbox);
+
+    galleryLightbox.addEventListener('click', e => {
+      if (e.target === galleryLightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!galleryLightbox.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  showSlide((currentIndex - 1 + visibleItems.length) % visibleItems.length);
+      if (e.key === 'ArrowRight') showSlide((currentIndex + 1) % visibleItems.length);
+      if (e.key === 'Escape')     closeLightbox();
     });
   </script>
 

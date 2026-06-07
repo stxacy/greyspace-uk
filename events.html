@@ -26,7 +26,7 @@
 
     .event-date {
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       letter-spacing: 0.08em;
       color: var(--muted);
     }
@@ -41,7 +41,7 @@
 
     .event-city {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
@@ -49,7 +49,7 @@
 
     .event-badge {
       font-family: var(--mono);
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       padding: 0.4rem 1rem;
@@ -76,23 +76,29 @@
 </head>
 <body>
 
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">
-      <img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings">
+      <img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings">
     </a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html#releases">Releases</a></li>
-      <li><a href="index.html#artists">Artists</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero reveal">
     <p class="page-hero-eyebrow">Grey Space Recordings</p>
     <h1 class="page-hero-title">Events</h1>
   </div>
@@ -101,39 +107,15 @@
   <section class="section reveal">
     <div class="section-header">
       <h2 class="section-title">Upcoming</h2>
-      <span class="section-meta">04 shows</span>
+      <span class="section-meta">01 show</span>
     </div>
     <div class="events-list">
 
       <div class="event-row">
-        <span class="event-date">18 Apr 26</span>
-        <span class="event-name">Greyspace Open Decks</span>
-        <span class="event-venue">The Bell</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge sold-out">Sold Out</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">25 Apr 26</span>
-        <span class="event-name">Grey Matter LP Launch</span>
-        <span class="event-venue">Basing House</span>
-        <span class="event-city">Manchester</span>
-        <span class="event-badge">Tickets</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">03 May 26</span>
-        <span class="event-name">Subterranean Series III</span>
-        <span class="event-venue">The Arches</span>
-        <span class="event-city">Glasgow</span>
-        <span class="event-badge">Tickets</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">17 May 26</span>
-        <span class="event-name">All Night — Kestrel</span>
-        <span class="event-venue">Corsica Studios</span>
-        <span class="event-city">London</span>
+        <span class="event-date">27 Jun 26</span>
+        <span class="event-name">Greyspace Cypher</span>
+        <span class="event-venue">Venue TBA</span>
+        <span class="event-city">Bristol</span>
         <span class="event-badge">Tickets</span>
       </div>
 
@@ -152,47 +134,25 @@
         <span class="event-date">02 May 26</span>
         <span class="event-name">ALR &amp; Laza Bday Bash</span>
         <span class="event-venue">The Bell</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge past">Ended</span>
+        <span class="event-city">Bristol</span>
+        <div class="event-actions">
+          <button class="event-flyer-btn" onclick="openFlyer('images/bday-bash/flyer.jpg')">View Flyer</button>
+          <span class="event-badge past">Ended</span>
+        </div>
       </div>
 
-      <div class="event-row">
-        <span class="event-date">08 Mar 26</span>
-        <span class="event-name">Subterranean Series II</span>
-        <span class="event-venue">The Mill</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge past">Ended</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">14 Feb 26</span>
-        <span class="event-name">Grey Space Presents</span>
-        <span class="event-venue">The Crossing</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge past">Ended</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">22 Nov 25</span>
-        <span class="event-name">Subterranean Series I</span>
-        <span class="event-venue">Lab11</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge past">Ended</span>
-      </div>
-
-      <div class="event-row">
-        <span class="event-date">04 Oct 25</span>
-        <span class="event-name">GSR Launch Night</span>
-        <span class="event-venue">The Bell</span>
-        <span class="event-city">Birmingham</span>
-        <span class="event-badge past">Ended</span>
-      </div>
 
     </div>
   </section>
 
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Event flyer">
+    <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Event flyer">
+  </div>
+
   <footer>
-    <div class="footer-logo"><img src="greyspace%20logo%20.jpg" alt="Grey Space Recordings"></div>
+    <div class="footer-logo"><img src="Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
     <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
     <nav class="footer-socials" aria-label="Social links">
       <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
@@ -202,6 +162,7 @@
     </nav>
   </footer>
 
+  <script src="splash.js"></script>
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -220,6 +181,29 @@
       const open = navLinks.classList.toggle('open');
       hamburger.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function openFlyer(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.id === 'lightbox-close') {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   </script>
 
