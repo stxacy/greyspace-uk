@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSR Logo Tee [White] — Grey Space Recordings</title>
+  <link rel="icon" href="../../Icon%20filled_All%20light.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../Icon%20filled_All%20light.png">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .product-wrap { display: grid; grid-template-columns: 1fr 1fr; margin-top: 86px; }
+    .product-gallery { position: sticky; top: 86px; height: calc(100dvh - 86px); align-self: start; display: flex; flex-direction: column; gap: 1rem; padding: 2.5rem; border-right: 1px solid var(--border); }
+    .gallery-main { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; background: #f4f4f4; }
+    .gallery-main img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; transition: opacity 0.25s ease; padding: 8%; }
+    .gallery-thumbs { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .gallery-thumb { width: 80px; height: 80px; border: 1px solid transparent; overflow: hidden; cursor: pointer; transition: border-color 0.15s; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f4f4f4; }
+    .gallery-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .gallery-thumb.active { border-color: var(--accent); }
+    .gallery-thumb:hover  { border-color: rgba(0,51,255,0.4); }
+    .product-info { padding: 4rem 4rem 5rem 3rem; }
+    .product-breadcrumb { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .product-breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .product-breadcrumb a:hover { color: var(--text); }
+    .product-breadcrumb-sep { color: var(--faint); }
+    .product-name { font-family: var(--head); font-size: clamp(3.5rem, 5vw, 6rem); font-weight: 400; line-height: 0.9; letter-spacing: 0.01em; margin-bottom: 1.25rem; }
+    .product-price { font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.1em; color: var(--text); margin-bottom: 3rem; }
+    .product-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .colour-swatches { display: flex; gap: 0.75rem; margin-bottom: 3rem; }
+    .colour-swatch { width: 60px; height: 60px; overflow: hidden; border: 1px solid var(--border); text-decoration: none; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); transition: border-color 0.15s; flex-shrink: 0; }
+    .colour-swatch img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .colour-swatch.active { border-color: var(--accent); }
+    .colour-swatch:hover  { border-color: rgba(0,51,255,0.4); }
+    .size-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .size-btn { height: 44px; min-width: 58px; padding: 0 1rem; background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+    .size-btn:hover { border-color: rgba(0,51,255,0.5); color: var(--text); }
+    .size-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .order-btn { display: block; width: 100%; padding: 1.1rem; background: var(--accent); color: #fff; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; text-align: center; text-decoration: none; margin-bottom: 3rem; transition: opacity 0.2s; }
+    .order-btn:hover { opacity: 0.8; }
+    .product-desc { border-top: 1px solid var(--border); padding-top: 2rem; }
+    .product-desc ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .product-desc li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .product-desc li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .product-wrap { grid-template-columns: 1fr; margin-top: 64px; }
+      .product-gallery { position: static; height: auto; padding: 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .gallery-main { height: 300px; flex: none; }
+      .product-info { padding: 2rem 1.5rem 3rem; }
+      .product-name { font-size: clamp(3rem, 11vw, 4.5rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="../../Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
+  <nav id="nav">
+    <a href="../../" class="nav-logo"><img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings"></a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../events/">Events</a></li>
+      <li><a href="../../merch/" class="active">Merch</a></li>
+      <li><a href="../../gallery/">Gallery</a></li>
+      <li><a href="../../contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="product-wrap">
+    <div class="product-gallery">
+      <div class="gallery-main">
+        <img id="main-img" src="../../greyspacemocks/White-front-20260608.png" alt="GSR Logo Tee [White]">
+      </div>
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb active" onclick="setImg('../../greyspacemocks/White-front-20260608.png', this)">
+          <img src="../../greyspacemocks/White-front-20260608.png" alt="Front">
+        </div>
+        <div class="gallery-thumb" onclick="setImg('../../greyspacemocks/White-back-20260608.png', this)">
+          <img src="../../greyspacemocks/White-back-20260608.png" alt="Back">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-info">
+      <p class="product-breadcrumb">
+        <a href="../../merch/">Merch</a>
+        <span class="product-breadcrumb-sep">/</span>
+        GSR Logo Tee [White]
+      </p>
+      <h1 class="product-name">GSR Logo Tee<br>[White]</h1>
+      <p class="product-price">£25.00</p>
+
+      <p class="product-label">Colour</p>
+      <div class="colour-swatches">
+        <a href="tee-black.html" class="colour-swatch" title="Black">
+          <img src="../../greyspacemocks/tshirtblackfront.png" alt="Black">
+        </a>
+        <a href="tee-white.html" class="colour-swatch active" title="White">
+          <img src="../../greyspacemocks/White-front-20260608.png" alt="White">
+        </a>
+        <a href="tee-grey-white.html" class="colour-swatch" title="Grey / White Print">
+          <img src="../../greyspacemocks/greytshirtwhitefront.png" alt="Grey / White Print">
+        </a>
+        <a href="tee-grey-black.html" class="colour-swatch" title="Grey / Black Print">
+          <img src="../../greyspacemocks/greytshirt.png" alt="Grey / Black Print">
+        </a>
+      </div>
+
+      <p class="product-label">Size</p>
+      <div class="size-grid">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+        <button class="size-btn" onclick="selectSize(this)">XXL</button>
+      </div>
+
+      <a href="../../contact/" class="order-btn">Order Now</a>
+
+      <div class="product-desc">
+        <ul>
+          <li>100% Heavyweight Cotton</li>
+          <li>Oversized Fit — True to Size</li>
+          <li>GSR Wordmark — Left Chest</li>
+          <li>Large Back Graphic</li>
+          <li>Unisex Sizing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+    </nav>
+  </footer>
+
+  <script src="../../splash.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    function setImg(src, thumb) {
+      document.getElementById('main-img').src = src;
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

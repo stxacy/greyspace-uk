@@ -25,27 +25,48 @@
       background: var(--border);
     }
 
+    .merch-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    .merch-grid--1 {
+      grid-template-columns: 1fr;
+      max-width: calc(33.33% + 1px);
+    }
+
     .merch-card {
       background: var(--bg);
       cursor: pointer;
       overflow: hidden;
       transition: background 0.2s;
+      text-decoration: none;
+      display: block;
+      color: var(--text);
     }
 
     .merch-card:hover { background: var(--bg-2); }
 
-    .merch-img-wrap { overflow: hidden; aspect-ratio: 1; }
+    /* ─── FRONT / BACK IMAGE FLIP ─── */
+    .merch-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: #f4f4f4;
+    }
 
-    .merch-img {
+    .merch-img-front,
+    .merch-img-back {
+      position: absolute;
+      top: 0; left: 0;
       width: 100%; height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 6%;
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .merch-card:hover .merch-img {
-      transform: scale(1.04);
-    }
+    .merch-img-back { opacity: 0; }
+
+    .merch-card:hover .merch-img-front { opacity: 0; transform: scale(1.04); }
+    .merch-card:hover .merch-img-back  { opacity: 1; transform: scale(1.04); }
 
     .merch-info {
       padding: 1.5rem;
@@ -90,11 +111,10 @@
       padding: 0.4rem 0.875rem;
       border: 1px solid var(--border);
       color: var(--muted);
-      text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .merch-card:hover .merch-cta {
+    .merch-card:hover .merch-cta:not(.sold-out) {
       border-color: rgba(0, 51, 255, 0.5);
       color: var(--accent);
     }
@@ -102,12 +122,18 @@
     .merch-cta.sold-out { color: var(--faint); border-color: rgba(255,255,255,0.05); pointer-events: none; }
 
     /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .merch-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 768px) {
       .merch-grid { grid-template-columns: repeat(2, 1fr); }
+      .merch-grid--1 { max-width: 100%; grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      .merch-grid { grid-template-columns: 1fr; }
+      .merch-grid,
+      .merch-grid--4 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -140,58 +166,156 @@
     <h1 class="page-hero-title">Merch</h1>
   </div>
 
-  <!-- ─── CLOTHING ─── -->
+  <!-- ─── T-SHIRTS ─── -->
   <section class="section">
     <div class="section-header reveal">
-      <h2 class="section-title">Clothing</h2>
+      <h2 class="section-title">T-Shirts</h2>
+      <span class="section-meta">4 Colours</span>
     </div>
-    <div class="merch-grid">
+    <div class="merch-grid merch-grid--4">
 
-      <div class="merch-card reveal">
+      <a href="products/tee-black.html" class="merch-card reveal">
         <div class="merch-img-wrap">
-          <img class="merch-img" src="../GSR_blue.png" alt="GSR Logo Tee" loading="lazy">
+          <img class="merch-img-front" src="../greyspacemocks/tshirtblackfront.png" alt="GSR Tee Black — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/tshirtblack.png"      alt="GSR Tee Black — Back"  loading="lazy">
         </div>
         <div class="merch-info">
           <p class="merch-category">T-Shirt</p>
-          <p class="merch-name">GSR Logo Tee</p>
+          <p class="merch-name">GSR Tee<br>[Black]</p>
           <div class="merch-footer">
             <span class="merch-price">£25.00</span>
-            <a href="../contact/" class="merch-cta">Order</a>
+            <span class="merch-cta">View</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="merch-card reveal" style="animation-delay:0.08s">
+      <a href="products/tee-white.html" class="merch-card reveal" style="animation-delay:0.07s">
         <div class="merch-img-wrap">
-          <img class="merch-img" src="../GSR_blue.png" alt="GSR Hoodie" loading="lazy">
+          <img class="merch-img-front" src="../greyspacemocks/White-front-20260608.png" alt="GSR Tee White — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/White-back-20260608.png"  alt="GSR Tee White — Back"  loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">T-Shirt</p>
+          <p class="merch-name">GSR Tee<br>[White]</p>
+          <div class="merch-footer">
+            <span class="merch-price">£25.00</span>
+            <span class="merch-cta">View</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/tee-grey-white.html" class="merch-card reveal" style="animation-delay:0.14s">
+        <div class="merch-img-wrap">
+          <img class="merch-img-front" src="../greyspacemocks/greytshirtwhitefront.png" alt="GSR Tee Grey White Print — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/greytshirtwhite.png"       alt="GSR Tee Grey White Print — Back"  loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">T-Shirt</p>
+          <p class="merch-name">GSR Tee<br>[Grey / White]</p>
+          <div class="merch-footer">
+            <span class="merch-price">£25.00</span>
+            <span class="merch-cta">View</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/tee-grey-black.html" class="merch-card reveal" style="animation-delay:0.21s">
+        <div class="merch-img-wrap">
+          <img class="merch-img-front" src="../greyspacemocks/greytshirt.png"      alt="GSR Tee Grey Black Print — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/greytshirtblack.png" alt="GSR Tee Grey Black Print — Back"  loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">T-Shirt</p>
+          <p class="merch-name">GSR Tee<br>[Grey / Black]</p>
+          <div class="merch-footer">
+            <span class="merch-price">£25.00</span>
+            <span class="merch-cta">View</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─── HOODIES ─── -->
+  <section class="section">
+    <div class="section-header reveal">
+      <h2 class="section-title">Hoodies</h2>
+      <span class="section-meta">3 Colours</span>
+    </div>
+    <div class="merch-grid">
+
+      <a href="products/hoodie-black.html" class="merch-card reveal">
+        <div class="merch-img-wrap">
+          <img class="merch-img-front" src="../greyspacemocks/blackhoodie.png"     alt="GSR Hoodie Black — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/blackhoodieback.png" alt="GSR Hoodie Black — Back"  loading="lazy">
         </div>
         <div class="merch-info">
           <p class="merch-category">Hoodie</p>
-          <p class="merch-name">GSR Hoodie</p>
+          <p class="merch-name">GSR Hoodie<br>[Black]</p>
           <div class="merch-footer">
             <span class="merch-price">£55.00</span>
-            <a href="../contact/" class="merch-cta">Order</a>
+            <span class="merch-cta">View</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="merch-card reveal" style="animation-delay:0.16s">
+      <a href="products/hoodie-white.html" class="merch-card reveal" style="animation-delay:0.07s">
         <div class="merch-img-wrap">
-          <img class="merch-img" src="../GSR_blue.png" alt="GSR Cap" loading="lazy">
+          <img class="merch-img-front" src="../greyspacemocks/hoodiewhite.png"     alt="GSR Hoodie White — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/hoodiewhiteback.png" alt="GSR Hoodie White — Back"  loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Hoodie</p>
+          <p class="merch-name">GSR Hoodie<br>[White]</p>
+          <div class="merch-footer">
+            <span class="merch-price">£55.00</span>
+            <span class="merch-cta">View</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/hoodie-grey.html" class="merch-card reveal" style="animation-delay:0.14s">
+        <div class="merch-img-wrap">
+          <img class="merch-img-front" src="../greyspacemocks/greyhoodiewhitefront.png" alt="GSR Hoodie Grey — Front" loading="lazy">
+          <img class="merch-img-back"  src="../greyspacemocks/greyhoodieback.png"        alt="GSR Hoodie Grey — Back"  loading="lazy">
+        </div>
+        <div class="merch-info">
+          <p class="merch-category">Hoodie</p>
+          <p class="merch-name">GSR Hoodie<br>[Grey]</p>
+          <div class="merch-footer">
+            <span class="merch-price">£55.00</span>
+            <span class="merch-cta">View</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─── ACCESSORIES ─── -->
+  <section class="section">
+    <div class="section-header reveal">
+      <h2 class="section-title">Accessories</h2>
+    </div>
+    <div class="merch-grid merch-grid--1">
+
+      <div class="merch-card reveal">
+        <div class="merch-img-wrap">
+          <img class="merch-img-front" src="../GSR_blue.png" alt="GSR Cap" loading="lazy">
         </div>
         <div class="merch-info">
           <p class="merch-category">Cap</p>
           <p class="merch-name">GSR Cap</p>
           <div class="merch-footer">
             <span class="merch-price">£22.00</span>
-            <a href="../contact/" class="merch-cta sold-out">Sold Out</a>
+            <span class="merch-cta sold-out">Sold Out</span>
           </div>
         </div>
       </div>
 
     </div>
   </section>
-
 
   <footer>
     <div class="footer-logo"><img src="../Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
