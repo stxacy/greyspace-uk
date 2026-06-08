@@ -264,6 +264,7 @@
       .stat-num { font-size: clamp(1.4rem, 6vw, 2.2rem); }
       .about-body p { font-size: 0.82rem; line-height: 1.75; }
     }
+
   </style>
 </head>
 <body>
@@ -293,7 +294,7 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <div class="hero-left reveal">
+    <div class="hero-left">
       <p class="hero-eyebrow">Underground Music — UK</p>
       <h1 class="hero-headline">Grey<br>Space</h1>
       <span class="hero-sub">Recordings</span>
@@ -326,20 +327,20 @@
   </div>
 
   <!-- ─── ABOUT ─── -->
-  <section class="section reveal" id="about">
+  <section class="section" id="about">
     <div class="about-inner">
       <div>
-        <p class="about-quote">
+        <p class="about-quote reveal">
           Sound built for <em>concrete floors.</em><br>Not streaming dashboards.
         </p>
-        <div class="about-stats">
+        <div class="about-stats reveal" style="transition-delay: 0.14s">
           <div class="stat"><p class="stat-num">2025</p><p class="stat-label">Founded</p></div>
           <div class="stat"><p class="stat-num">Bristol</p><p class="stat-label">UK</p></div>
           <div class="stat"><p class="stat-num">130–180</p><p class="stat-label">BPM</p></div>
           <div class="stat"><p class="stat-num">Underground</p><p class="stat-label">Scene</p></div>
         </div>
       </div>
-      <div class="about-body">
+      <div class="about-body reveal" style="transition-delay: 0.07s">
         <p>Grey Space Recordings is a UK underground music collective and label. We run nights, press records, and give a platform to the sounds that matter.</p>
         <p>No commercial concessions. <strong>Every release is intentional. Every night is selected.</strong></p>
         <p>If you've heard it in a dark room at 2am, you already know what we're about.</p>
@@ -348,14 +349,14 @@
   </section>
 
   <!-- ─── EVENTS ─── -->
-  <section class="section reveal" id="events">
-    <div class="section-header">
+  <section class="section" id="events">
+    <div class="section-header reveal">
       <h2 class="section-title">Upcoming</h2>
       <a href="events/" class="section-link">All Events</a>
     </div>
     <div class="events-list">
 
-      <div class="event-row">
+      <div class="event-row reveal" style="transition-delay: 0.1s">
         <span class="event-date">27 Jun 26</span>
         <span class="event-name">Greyspace Cypher</span>
         <span class="event-venue">Venue TBA</span>
@@ -386,17 +387,15 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.07 });
-
-    revealEls.forEach(el => observer.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks = document.querySelector('.nav-links');

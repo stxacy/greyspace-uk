@@ -106,20 +106,20 @@
     </ul>
   </nav>
 
-  <div class="page-hero reveal">
+  <div class="page-hero">
     <p class="page-hero-eyebrow">Grey Space Recordings</p>
     <h1 class="page-hero-title">Events</h1>
   </div>
 
   <!-- ─── UPCOMING ─── -->
-  <section class="section reveal">
-    <div class="section-header">
+  <section class="section">
+    <div class="section-header reveal">
       <h2 class="section-title">Upcoming</h2>
       <span class="section-meta">01 show</span>
     </div>
     <div class="events-list">
 
-      <div class="event-row">
+      <div class="event-row reveal" style="transition-delay:0.1s">
         <span class="event-date">27 Jun 26</span>
         <span class="event-name">Greyspace Cypher</span>
         <span class="event-venue">Venue TBA</span>
@@ -131,14 +131,14 @@
   </section>
 
   <!-- ─── PAST ─── -->
-  <section class="section reveal">
-    <div class="section-header">
+  <section class="section">
+    <div class="section-header reveal">
       <h2 class="section-title">Past</h2>
       <span class="section-meta">Archive</span>
     </div>
     <div class="events-list">
 
-      <div class="event-row">
+      <div class="event-row reveal" style="transition-delay:0.1s">
         <span class="event-date">02 May 26</span>
         <span class="event-name">ALR &amp; Laza Bday Bash</span>
         <span class="event-venue">The Bell</span>
@@ -176,11 +176,15 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      new IntersectionObserver(([e], obs) => {
-        if (e.isIntersecting) { el.classList.add('in-view'); obs.unobserve(el); }
-      }, { threshold: 0.07 }).observe(el);
-    });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks = document.querySelector('.nav-links');
