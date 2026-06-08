@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <div class="merch-card reveal" style="transition-delay:0.08s">
+      <div class="merch-card reveal" style="animation-delay:0.08s">
         <div class="merch-img-wrap">
           <img class="merch-img" src="../GSR_blue.png" alt="GSR Hoodie" loading="lazy">
         </div>
@@ -173,7 +173,7 @@
         </div>
       </div>
 
-      <div class="merch-card reveal" style="transition-delay:0.16s">
+      <div class="merch-card reveal" style="animation-delay:0.16s">
         <div class="merch-img-wrap">
           <img class="merch-img" src="../GSR_blue.png" alt="GSR Cap" loading="lazy">
         </div>
@@ -208,15 +208,28 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          revealObs.unobserve(e.target);
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+    if (document.body.classList.contains('page-ready')) {
+      initReveal();
+    } else {
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('page-ready')) {
+          mo.disconnect();
+          initReveal();
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
 
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks = document.querySelector('.nav-links');

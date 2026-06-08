@@ -181,7 +181,7 @@
       <button class="filter-tab" data-filter="bday-bash">Bday Bash</button>
     </div>
 
-    <div class="gallery-grid reveal" id="gallery" style="transition-delay:0.1s">
+    <div class="gallery-grid reveal" id="gallery" style="animation-delay:0.1s">
 
       <div class="gallery-item" data-category="bday-bash">
         <img class="gallery-img colour" src="../images/bday-bash/photo-01.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
@@ -311,15 +311,28 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          revealObs.unobserve(e.target);
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+    if (document.body.classList.contains('page-ready')) {
+      initReveal();
+    } else {
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('page-ready')) {
+          mo.disconnect();
+          initReveal();
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
 
     document.querySelectorAll('.filter-tab').forEach(tab => {
       tab.addEventListener('click', () => {

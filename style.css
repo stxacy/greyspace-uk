@@ -361,13 +361,8 @@ footer {
 }
 
 /* ─── SCROLL REVEAL ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-}
-
-.reveal.in-view { opacity: 1; transform: none; }
+.reveal { opacity: 0; transform: translateY(30px); }
+.reveal.in-view { animation: gsr-fadeUp 0.75s ease both; }
 
 /* ─── LOAD ANIMATIONS ─── */
 @keyframes gsr-fadeUp {
@@ -377,16 +372,16 @@ footer {
 
 /* Homepage hero */
 .hero-eyebrow, .hero-headline, .hero-sub, .hero-right, .marquee-wrap { opacity: 0; }
-.page-ready .hero-eyebrow  { animation: gsr-fadeUp 0.8s ease both; }
-.page-ready .hero-right    { animation: gsr-fadeUp 0.8s 0.06s ease both; }
-.page-ready .hero-headline { animation: gsr-fadeUp 0.8s 0.13s ease both; }
-.page-ready .hero-sub      { animation: gsr-fadeUp 0.8s 0.24s ease both; }
-.page-ready .marquee-wrap  { animation: gsr-fadeUp 0.8s 0.38s ease both; }
+.page-ready .hero-eyebrow  { animation: gsr-fadeUp 0.5s ease-out both; }
+.page-ready .hero-right    { animation: gsr-fadeUp 0.5s 0.04s ease-out both; }
+.page-ready .hero-headline { animation: gsr-fadeUp 0.5s 0.09s ease-out both; }
+.page-ready .hero-sub      { animation: gsr-fadeUp 0.5s 0.16s ease-out both; }
+.page-ready .marquee-wrap  { animation: gsr-fadeUp 0.5s 0.24s ease-out both; }
 
 /* Inner page hero */
 .page-hero-eyebrow, .page-hero-title { opacity: 0; }
-.page-ready .page-hero-eyebrow { animation: gsr-fadeUp 0.8s ease both; }
-.page-ready .page-hero-title   { animation: gsr-fadeUp 0.8s 0.14s ease both; }
+.page-ready .page-hero-eyebrow { animation: gsr-fadeUp 0.5s ease-out both; }
+.page-ready .page-hero-title   { animation: gsr-fadeUp 0.5s 0.09s ease-out both; }
 
 /* ─── MOBILE ─── */
 @media (max-width: 768px) {

@@ -76,8 +76,8 @@
       background: var(--bg);
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      padding: 1.75rem 2rem;
+      gap: 2rem;
+      padding: 2.5rem 2.5rem;
       cursor: pointer;
       transition: background 0.2s;
     }
@@ -94,7 +94,7 @@
     }
 
     .resident-img {
-      width: 64px; height: 64px;
+      width: 100px; height: 100px;
       object-fit: cover;
       object-position: center top;
       flex-shrink: 0;
@@ -105,10 +105,10 @@
 
     .resident-name {
       font-family: var(--head);
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       letter-spacing: 0.02em;
       line-height: 1;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
     .resident-genre {
@@ -155,8 +155,9 @@
       .stat { padding: 1.25rem; }
       .stat-num { font-size: clamp(1.4rem, 6vw, 2.2rem); }
       .residents-grid { grid-template-columns: 1fr; }
-      .resident-row { padding: 1.25rem 1rem; gap: 1rem; }
-      .resident-name { font-size: 1.5rem; }
+      .resident-row { padding: 1.5rem 1.25rem; gap: 1.25rem; }
+      .resident-img { width: 72px; height: 72px; }
+      .resident-name { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -196,14 +197,14 @@
         <p class="story-quote reveal">
           Sound built for <em>concrete floors.</em><br>Not streaming dashboards.
         </p>
-        <div class="story-body reveal" style="transition-delay:0.12s">
+        <div class="story-body reveal" style="animation-delay:0.12s">
           <p>Grey Space Recordings is a UK underground music collective and label. We started in back rooms and warehouse circuits, and we've stayed there by choice.</p>
           <p>We run nights, press records, and give a platform to the sounds that matter. <strong>No commercial concessions. No A&R gatekeeping. No genre ceiling.</strong></p>
           <p>Our nights span 140, DNB, grime, garage, and everything that lives in the grey between. The only thing that matters is whether it hits in a dark room at 2am.</p>
           <p>If you've been there, you already know what we're about.</p>
         </div>
       </div>
-      <div class="story-body reveal" style="padding-top:0.5rem; transition-delay:0.07s">
+      <div class="story-body reveal" style="padding-top:0.5rem; animation-delay:0.07s">
         <p><strong>Label</strong><br>Grey Space Recordings presses limited runs on vinyl and digital. Every release is intentional. No reissues, no remasters — if you missed it, you missed it.</p>
         <p><strong>Nights</strong><br>Grey Space events are small, dark, and loud. We work with venues that understand what the music needs. Doors are always last minute. Lineups sometimes stay secret.</p>
         <p><strong>Community</strong><br>The collective runs deeper than the label. Residents, DJs, MCs, and selectors who've been building together since before the bookings.</p>
@@ -243,7 +244,7 @@
         <svg class="resident-arrow" viewBox="0 0 16 16" fill="none" stroke-width="1.5" aria-hidden="true"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
       </div>
 
-      <div class="resident-row reveal" style="transition-delay:0.08s">
+      <div class="resident-row reveal" style="animation-delay:0.08s">
         <span class="resident-index">02</span>
         <img class="resident-img" src="../images/team/laza.png" alt="Laza">
         <div class="resident-info">
@@ -277,15 +278,28 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          revealObs.unobserve(e.target);
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+    if (document.body.classList.contains('page-ready')) {
+      initReveal();
+    } else {
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('page-ready')) {
+          mo.disconnect();
+          initReveal();
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
 
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks = document.querySelector('.nav-links');
