@@ -17,134 +17,126 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* ─── FILTER TABS ─── */
-    .filter-tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3.5rem;
-    }
-
-    .filter-tab {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 1rem 1.5rem;
-      cursor: pointer;
-      border-bottom: 1px solid transparent;
-      margin-bottom: -1px;
-      transition: color 0.2s, border-color 0.2s;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-    }
-
-    .filter-tab:hover { color: var(--text); }
-    .filter-tab.active { color: var(--text); border-bottom-color: var(--accent); }
-
-    /* ─── GALLERY GRID ─── */
-    .gallery-grid {
-      columns: 3;
+    /* ─── EVENT GRID ─── */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
+      background: var(--border);
     }
 
-    .gallery-item {
-      break-inside: avoid;
-      overflow: hidden;
-      margin-bottom: 1px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .gallery-img {
-      width: 100%;
+    .event-card {
       display: block;
-      filter: grayscale(80%) contrast(1.1);
-      transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: var(--text);
+      background: var(--bg);
+      overflow: hidden;
+      transition: background 0.2s;
     }
 
-    .gallery-item:hover .gallery-img {
-      filter: grayscale(0%) contrast(1.04);
-      transform: scale(1.03);
+    .event-card:hover { background: var(--bg-2); }
+
+    /* ─── PHOTO STACK ─── */
+    .event-stack-wrap {
+      padding: 1.5rem 1.5rem 0;
     }
 
-    .gallery-caption {
+    .event-stack {
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+
+    .stack-layer {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 1rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.55s ease;
+    }
+
+    /* back cards: rotated behind the front */
+    .stack-l2 {
+      transform: rotate(-4.5deg);
+      filter: brightness(0.45) grayscale(60%);
+    }
+
+    .stack-l1 {
+      transform: rotate(2.8deg);
+      filter: brightness(0.6) grayscale(35%);
+    }
+
+    /* hover: fan out */
+    .event-card:hover .stack-l2 {
+      transform: rotate(-8deg);
+      filter: brightness(0.55) grayscale(40%);
+    }
+
+    .event-card:hover .stack-l1 {
+      transform: rotate(5deg);
+      filter: brightness(0.7) grayscale(20%);
+    }
+
+    /* ─── EVENT INFO ─── */
+    .event-info {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+
+    .event-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-name {
+      font-family: var(--head);
+      font-size: 1.6rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .event-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .event-venue {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .event-cta {
       font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .gallery-item:hover .gallery-caption { opacity: 1; }
-
-    /* ─── GALLERY LIGHTBOX ─── */
-    .gallery-lb-prev,
-    .gallery-lb-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
+      padding: 0.4rem 0.875rem;
+      border: 1px solid var(--border);
       color: var(--muted);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 1rem 1.5rem;
-      transition: color 0.2s;
-      z-index: 1;
-      line-height: 1;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    .gallery-lb-prev { left: 1rem; }
-    .gallery-lb-next { right: 1rem; }
-    .gallery-lb-prev:hover, .gallery-lb-next:hover { color: var(--text); }
-
-    .lightbox-info {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 0; right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      pointer-events: none;
-    }
-
-    .lightbox-caption {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .lightbox-counter {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--faint);
+    .event-card:hover .event-cta {
+      border-color: rgba(0, 51, 255, 0.5);
+      color: var(--accent);
     }
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
-      .gallery-grid { columns: 2; }
-      .filter-tabs { flex-wrap: wrap; }
-      .filter-tab { padding: 0.75rem 1rem; }
-      .gallery-lb-prev { left: 0; }
-      .gallery-lb-next { right: 0; }
+      .event-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 480px) {
-      .gallery-grid { columns: 1; }
+      .event-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -178,123 +170,28 @@
   </div>
 
   <section class="section">
-    <div class="filter-tabs reveal" role="tablist">
-      <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="bday-bash">Bday Bash</button>
-    </div>
+    <div class="event-grid">
 
-    <div class="gallery-grid reveal" id="gallery" style="animation-delay:0.1s">
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-01.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-02.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-03.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-04.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-05.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-06.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-07.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-08.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-09.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-10.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-11.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-12.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-13.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-14.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-15.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-16.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-17.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-18.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
-      <div class="gallery-item" data-category="bday-bash">
-        <img class="gallery-img colour" src="../images/bday-bash/photo-19.jpg" alt="ALR & Laza Bday Bash" loading="lazy">
-        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
-      </div>
-
+      <a href="bday-bash/" class="event-card reveal">
+        <div class="event-stack-wrap">
+          <div class="event-stack">
+            <div class="stack-layer stack-l2" style="background-image: url('../images/bday-bash/photo-11.jpg')"></div>
+            <div class="stack-layer stack-l1" style="background-image: url('../images/bday-bash/photo-14.jpg')"></div>
+            <div class="stack-layer stack-l0" style="background-image: url('../images/bday-bash/photo-05.jpg')"></div>
+          </div>
+        </div>
+        <div class="event-info">
+          <p class="event-eyebrow">19 Photos &middot; 05.06.26</p>
+          <p class="event-name">ALR &amp; Laza<br>Bday Bash</p>
+          <div class="event-footer">
+            <span class="event-venue">The Bell, Bristol</span>
+            <span class="event-cta">View</span>
+          </div>
+        </div>
+      </a>
 
     </div>
   </section>
-
-  <!-- ─── GALLERY LIGHTBOX ─── -->
-  <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery image">
-    <button class="lightbox-close" id="gallery-lb-close">Close ✕</button>
-    <button class="gallery-lb-prev" id="gallery-lb-prev" aria-label="Previous">&#8592;</button>
-    <img class="lightbox-img" id="gallery-lb-img" src="" alt="">
-    <button class="gallery-lb-next" id="gallery-lb-next" aria-label="Next">&#8594;</button>
-    <div class="lightbox-info">
-      <span class="lightbox-caption" id="gallery-lb-caption"></span>
-      <span class="lightbox-counter" id="gallery-lb-counter"></span>
-    </div>
-  </div>
 
   <footer>
     <div class="footer-logo"><img src="../Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
@@ -336,90 +233,12 @@
       mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
     }
 
-    document.querySelectorAll('.filter-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const filter = tab.dataset.filter;
-        document.querySelectorAll('.gallery-item').forEach(item => {
-          item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
-        });
-      });
-    });
-
     const hamburger = document.querySelector('.nav-hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks  = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       hamburger.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
-    });
-
-    // ─── GALLERY LIGHTBOX ───
-    const galleryLightbox = document.getElementById('gallery-lightbox');
-    const galleryLbImg    = document.getElementById('gallery-lb-img');
-    const galleryLbCap    = document.getElementById('gallery-lb-caption');
-    const galleryLbCount  = document.getElementById('gallery-lb-counter');
-    let currentIndex = 0;
-    let visibleItems = [];
-
-    function getVisible() {
-      return Array.from(document.querySelectorAll('.gallery-item'))
-        .filter(el => el.style.display !== 'none');
-    }
-
-    function showSlide(index) {
-      const item = visibleItems[index];
-      galleryLbImg.src = item.querySelector('.gallery-img').src;
-      galleryLbImg.alt = item.querySelector('.gallery-img').alt;
-      const cap = item.querySelector('.gallery-caption');
-      galleryLbCap.textContent = cap ? cap.textContent : '';
-      galleryLbCount.textContent = `${index + 1} / ${visibleItems.length}`;
-      currentIndex = index;
-    }
-
-    function openLightbox(index) {
-      visibleItems = getVisible();
-      showSlide(index);
-      galleryLightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      galleryLightbox.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', () => {
-        visibleItems = getVisible();
-        const idx = visibleItems.indexOf(item);
-        if (idx !== -1) openLightbox(idx);
-      });
-    });
-
-    document.getElementById('gallery-lb-prev').addEventListener('click', e => {
-      e.stopPropagation();
-      showSlide((currentIndex - 1 + visibleItems.length) % visibleItems.length);
-    });
-
-    document.getElementById('gallery-lb-next').addEventListener('click', e => {
-      e.stopPropagation();
-      showSlide((currentIndex + 1) % visibleItems.length);
-    });
-
-    document.getElementById('gallery-lb-close').addEventListener('click', closeLightbox);
-
-    galleryLightbox.addEventListener('click', e => {
-      if (e.target === galleryLightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (!galleryLightbox.classList.contains('open')) return;
-      if (e.key === 'ArrowLeft')  showSlide((currentIndex - 1 + visibleItems.length) % visibleItems.length);
-      if (e.key === 'ArrowRight') showSlide((currentIndex + 1) % visibleItems.length);
-      if (e.key === 'Escape')     closeLightbox();
     });
   </script>
 

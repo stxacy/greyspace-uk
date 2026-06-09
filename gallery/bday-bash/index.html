@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALR &amp; Laza Bday Bash — Grey Space Recordings Gallery</title>
+  <meta name="description" content="Photos from the ALR & Laza Birthday Bash at The Bell, Bristol. 05 June 2026.">
+  <link rel="icon" href="../../Icon%20filled_All%20light.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../Icon%20filled_All%20light.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ALR & Laza Bday Bash — Grey Space Recordings">
+  <meta property="og:description" content="Photos from the ALR & Laza Birthday Bash at The Bell, Bristol.">
+  <meta property="og:image" content="https://stxacy.github.io/greyspace-uk/images/bday-bash/photo-13.jpg">
+  <meta property="og:url" content="https://stxacy.github.io/greyspace-uk/gallery/bday-bash/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--text); }
+
+    .breadcrumb-sep { color: var(--faint); }
+
+    .breadcrumb-current { color: var(--text); }
+
+    /* ─── GALLERY GRID ─── */
+    .gallery-grid {
+      columns: 3;
+      gap: 1px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      overflow: hidden;
+      margin-bottom: 1px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── LIGHTBOX PREV/NEXT ─── */
+    .gallery-lb-prev,
+    .gallery-lb-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      transition: color 0.2s;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    .gallery-lb-prev { left: 1rem; }
+    .gallery-lb-next { right: 1rem; }
+    .gallery-lb-prev:hover, .gallery-lb-next:hover { color: var(--text); }
+
+    .lightbox-info {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      pointer-events: none;
+    }
+
+    .lightbox-caption {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .lightbox-counter {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .gallery-grid { columns: 2; }
+      .gallery-lb-prev { left: 0; }
+      .gallery-lb-next { right: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="../../Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
+  <nav id="nav">
+    <a href="../../" class="nav-logo">
+      <img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings">
+    </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../events/">Events</a></li>
+      <li><a href="../../merch/">Merch</a></li>
+      <li><a href="../../gallery/" class="active">Gallery</a></li>
+      <li><a href="../../contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">The Bell, Bristol &mdash; 05 June 2026</p>
+    <h1 class="page-hero-title">ALR &amp; Laza<br>Bday Bash</h1>
+  </div>
+
+  <section class="section">
+
+    <div class="breadcrumb reveal">
+      <a href="../../gallery/">Gallery</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">ALR &amp; Laza Bday Bash</span>
+    </div>
+
+    <div class="gallery-grid reveal" id="gallery" style="animation-delay:0.1s">
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-01.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-02.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-03.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-04.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-05.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-06.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-07.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-08.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-09.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-10.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-11.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-12.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-13.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-14.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-15.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-16.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-17.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-18.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/bday-bash/photo-19.jpg" alt="ALR &amp; Laza Bday Bash" loading="lazy">
+        <span class="gallery-caption">ALR &amp; Laza Bday Bash — The Bell, Bristol</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery image">
+    <button class="lightbox-close" id="gallery-lb-close">Close ✕</button>
+    <button class="gallery-lb-prev" id="gallery-lb-prev" aria-label="Previous">&#8592;</button>
+    <img class="lightbox-img" id="gallery-lb-img" src="" alt="">
+    <button class="gallery-lb-next" id="gallery-lb-next" aria-label="Next">&#8594;</button>
+    <div class="lightbox-info">
+      <span class="lightbox-caption" id="gallery-lb-caption"></span>
+      <span class="lightbox-counter" id="gallery-lb-counter"></span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings"></div>
+    <p class="footer-copy">&copy; 2026 Grey Space Recordings. All rights reserved.</p>
+    <nav class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bandcamp</a>
+      <a href="#">Soundcloud</a>
+    </nav>
+  </footer>
+
+  <script src="../../splash.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+    if (document.body.classList.contains('page-ready')) {
+      initReveal();
+    } else {
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('page-ready')) {
+          mo.disconnect();
+          initReveal();
+        }
+      });
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+
+    // ─── LIGHTBOX ───
+    const lb        = document.getElementById('gallery-lightbox');
+    const lbImg     = document.getElementById('gallery-lb-img');
+    const lbCap     = document.getElementById('gallery-lb-caption');
+    const lbCount   = document.getElementById('gallery-lb-counter');
+    const items     = Array.from(document.querySelectorAll('.gallery-item'));
+    let current     = 0;
+
+    function showSlide(idx) {
+      current = (idx + items.length) % items.length;
+      lbImg.src = items[current].querySelector('.gallery-img').src;
+      lbImg.alt = items[current].querySelector('.gallery-img').alt;
+      const cap = items[current].querySelector('.gallery-caption');
+      lbCap.textContent = cap ? cap.textContent : '';
+      lbCount.textContent = `${current + 1} / ${items.length}`;
+    }
+
+    function openLb(idx) {
+      showSlide(idx);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    items.forEach((item, i) => item.addEventListener('click', () => openLb(i)));
+
+    document.getElementById('gallery-lb-prev').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide(current - 1);
+    });
+
+    document.getElementById('gallery-lb-next').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide(current + 1);
+    });
+
+    document.getElementById('gallery-lb-close').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  showSlide(current - 1);
+      if (e.key === 'ArrowRight') showSlide(current + 1);
+      if (e.key === 'Escape')     closeLb();
+    });
+  </script>
+
+</body>
+</html>
