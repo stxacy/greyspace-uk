@@ -119,6 +119,70 @@
 
     .merch-cta.sold-out { color: var(--faint); border-color: rgba(255,255,255,0.05); pointer-events: none; }
 
+    .merch-cta.coming-soon {
+      color: var(--faint);
+      border-color: rgba(255,255,255,0.08);
+      pointer-events: none;
+      letter-spacing: 0.14em;
+    }
+
+    .merch-card { cursor: pointer; }
+
+    /* ─── COMING SOON BANNER ─── */
+    .store-notice {
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── TOAST ─── */
+    .merch-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      z-index: 999;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .merch-toast.show { transform: translateX(-50%) translateY(0); }
+
+    .merch-toast-text {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .merch-toast-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,51,255,0.4);
+      padding-bottom: 1px;
+    }
+
+    @media (max-width: 480px) {
+      .merch-toast { white-space: normal; text-align: center; flex-direction: column; gap: 0.75rem; width: calc(100% - 3rem); }
+    }
+
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
       .merch-grid { grid-template-columns: repeat(2, 1fr); }
@@ -159,6 +223,8 @@
     <h1 class="page-hero-title">Merch</h1>
   </div>
 
+  <div class="store-notice">Browse the collection &mdash; store launching soon</div>
+
   <!-- ─── T-SHIRTS ─── -->
   <section class="section">
     <div class="section-header reveal">
@@ -167,7 +233,7 @@
     </div>
     <div class="merch-grid">
 
-      <a href="products/tee-black/" class="merch-card reveal">
+      <div class="merch-card reveal">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/tshirtblackfront.png" alt="GSR Tee Black — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/tshirtblack.png"      alt="GSR Tee Black — Back"  loading="lazy">
@@ -177,12 +243,12 @@
           <p class="merch-name">GSR Tee<br>[Black]</p>
           <div class="merch-footer">
             <span class="merch-price">£25.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="products/tee-white/" class="merch-card reveal" style="animation-delay:0.07s">
+      <div class="merch-card reveal" style="animation-delay:0.07s">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/White-front-20260608.png" alt="GSR Tee White — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/White-back-20260608.png"  alt="GSR Tee White — Back"  loading="lazy">
@@ -192,12 +258,12 @@
           <p class="merch-name">GSR Tee<br>[White]</p>
           <div class="merch-footer">
             <span class="merch-price">£25.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="products/tee-grey-white/" class="merch-card reveal" style="animation-delay:0.14s">
+      <div class="merch-card reveal" style="animation-delay:0.14s">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/greytshirtwhitefront.png" alt="GSR Tee Grey White Print — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/greytshirtwhite.png"       alt="GSR Tee Grey White Print — Back"  loading="lazy">
@@ -207,10 +273,10 @@
           <p class="merch-name">GSR Tee<br>[Grey / White]</p>
           <div class="merch-footer">
             <span class="merch-price">£25.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
     </div>
   </section>
@@ -223,7 +289,7 @@
     </div>
     <div class="merch-grid">
 
-      <a href="products/hoodie-black/" class="merch-card reveal">
+      <div class="merch-card reveal">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/blackhoodie.png"     alt="GSR Hoodie Black — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/blackhoodieback.png" alt="GSR Hoodie Black — Back"  loading="lazy">
@@ -233,12 +299,12 @@
           <p class="merch-name">GSR Hoodie<br>[Black]</p>
           <div class="merch-footer">
             <span class="merch-price">£55.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="products/hoodie-white/" class="merch-card reveal" style="animation-delay:0.07s">
+      <div class="merch-card reveal" style="animation-delay:0.07s">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/hoodiewhite.png"     alt="GSR Hoodie White — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/hoodiewhiteback.png" alt="GSR Hoodie White — Back"  loading="lazy">
@@ -248,12 +314,12 @@
           <p class="merch-name">GSR Hoodie<br>[White]</p>
           <div class="merch-footer">
             <span class="merch-price">£55.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="products/hoodie-grey/" class="merch-card reveal" style="animation-delay:0.14s">
+      <div class="merch-card reveal" style="animation-delay:0.14s">
         <div class="merch-img-wrap">
           <img class="merch-img-front" src="../greyspacemocks/greyhoodiewhitefront.png" alt="GSR Hoodie Grey — Front" loading="lazy">
           <img class="merch-img-back"  src="../greyspacemocks/greyhoodieback.png"        alt="GSR Hoodie Grey — Back"  loading="lazy">
@@ -263,10 +329,10 @@
           <p class="merch-name">GSR Hoodie<br>[Grey]</p>
           <div class="merch-footer">
             <span class="merch-price">£55.00</span>
-            <span class="merch-cta">View</span>
+            <span class="merch-cta coming-soon">Coming Soon</span>
           </div>
         </div>
-      </a>
+      </div>
 
     </div>
   </section>
@@ -347,5 +413,23 @@
   </script>
 
   <script src="../cookies.js"></script>
+
+  <div class="merch-toast" id="merch-toast">
+    <span class="merch-toast-text">Store launching soon</span>
+    <a class="merch-toast-link" href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener">Follow for updates</a>
+  </div>
+
+  <script>
+    const toast = document.getElementById('merch-toast');
+    let toastTimer;
+
+    document.querySelectorAll('.merch-card').forEach(card => {
+      card.addEventListener('click', () => {
+        clearTimeout(toastTimer);
+        toast.classList.add('show');
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
+      });
+    });
+  </script>
 </body>
 </html>
