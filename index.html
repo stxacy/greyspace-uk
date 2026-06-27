@@ -388,7 +388,9 @@
         <span class="event-name">After Hourz x Grey Space</span>
         <span class="event-venue">Lakota</span>
         <span class="event-city">Bristol</span>
-        <span class="event-badge">Tickets TBA</span>
+        <div class="event-actions">
+          <span class="event-badge">Tickets TBA</span>
+        </div>
       </div>
 
       <div class="event-row reveal" style="animation-delay: 0.1s">
@@ -396,7 +398,10 @@
         <span class="event-name">Psyked x Frontline</span>
         <span class="event-venue">Lakota</span>
         <span class="event-city">Bristol</span>
-        <a class="event-badge" href="https://hdfst.uk/e156824" target="_blank" rel="noopener">Tickets</a>
+        <div class="event-actions">
+          <button class="event-flyer-btn" onclick="openFlyer('images/events/psykedxfrontline.jpg')">View Flyer</button>
+          <a class="event-badge" href="https://hdfst.uk/e156824" target="_blank" rel="noopener">Tickets</a>
+        </div>
       </div>
 
       <div class="event-row reveal" style="animation-delay: 0.13s">
@@ -404,7 +409,9 @@
         <span class="event-name">The Nest</span>
         <span class="event-venue">Lakota</span>
         <span class="event-city">Bristol</span>
-        <span class="event-badge">Tickets TBA</span>
+        <div class="event-actions">
+          <span class="event-badge">Tickets TBA</span>
+        </div>
       </div>
 
     </div>
@@ -450,5 +457,27 @@
   </script>
 
   <script src="cookies.js"></script>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Event flyer">
+    <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Event flyer">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    function openFlyer(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('open');
+    }
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.id === 'lightbox-close') {
+        lightbox.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+  </script>
 </body>
 </html>
