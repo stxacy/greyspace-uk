@@ -337,7 +337,7 @@ footer {
 .lightbox-close:hover { color: var(--text); }
 
 /* ─── EVENT ACTIONS ─── */
-.event-actions { display: flex; align-items: center; gap: 0.75rem; }
+.event-actions { display: flex; align-items: center; gap: 0.75rem; justify-content: flex-end; }
 
 .event-flyer-btn {
   font-family: var(--mono);
