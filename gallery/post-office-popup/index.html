@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greyspace x Uncivilised Records — Grey Space Recordings Gallery</title>
+  <meta name="description" content="Photos from Greyspace x Uncivilised Records at The Post Office, Stokes Croft. 27 June 2026.">
+  <link rel="icon" href="../../Icon%20filled_All%20light.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../Icon%20filled_All%20light.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Greyspace x Uncivilised Records — Grey Space Recordings">
+  <meta property="og:description" content="Photos from Greyspace x Uncivilised Records at The Post Office, Stokes Croft.">
+  <meta property="og:image" content="https://greyspacerecordings.co.uk/images/post-office-popup/photo-001.jpg">
+  <meta property="og:url" content="https://greyspacerecordings.co.uk/gallery/post-office-popup/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://greyspacerecordings.co.uk/gallery/post-office-popup/">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    /* ─── PAGE TITLE OVERRIDE ─── */
+    .page-hero-title { font-size: clamp(2.5rem, 7vw, 6rem); }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--text); }
+
+    .breadcrumb-sep { color: var(--faint); }
+
+    .breadcrumb-current { color: var(--text); }
+
+    /* ─── GALLERY GRID ─── */
+    .gallery-grid {
+      columns: 3;
+      gap: 1px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      overflow: hidden;
+      margin-bottom: 1px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── LIGHTBOX PREV/NEXT ─── */
+    .gallery-lb-prev,
+    .gallery-lb-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      transition: color 0.2s;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    .gallery-lb-prev { left: 1rem; }
+    .gallery-lb-next { right: 1rem; }
+    .gallery-lb-prev:hover, .gallery-lb-next:hover { color: var(--text); }
+
+    .lightbox-info {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      pointer-events: none;
+    }
+
+    .lightbox-caption {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .lightbox-counter {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .gallery-grid { columns: 2; }
+      .gallery-lb-prev { left: 0; }
+      .gallery-lb-next { right: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── SPLASH ─── -->
+  <div class="splash" id="splash">
+    <div class="splash-logo-wrap"><div class="splash-logo-spin"><img class="splash-logo" src="../../Icon%20filled_All%20Grey.png" alt="Grey Space Recordings"></div></div>
+    <p class="splash-enter" id="splash-enter">Click to Enter</p>
+  </div>
+
+  <nav id="nav">
+    <a href="../../" class="nav-logo">
+      <img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings">
+    </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../events/">Events</a></li>
+      <li><a href="../../merch/">Merch</a></li>
+      <li><a href="../../gallery/" class="active">Gallery</a></li>
+      <li><a href="../../contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">The Post Office, Stokes Croft &mdash; 27 June 2026</p>
+    <h1 class="page-hero-title">Greyspace x<br>Uncivilised Records</h1>
+  </div>
+
+  <section class="section">
+
+    <div class="breadcrumb reveal">
+      <a href="../../gallery/">Gallery</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Greyspace x Uncivilised Records</span>
+    </div>
+
+    <div class="gallery-grid reveal" id="gallery" style="animation-delay:0.1s">
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-001.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-002.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-003.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-004.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-005.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-006.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-007.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-008.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-009.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-010.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-011.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-012.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-013.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-014.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-015.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-016.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-017.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-018.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-019.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-020.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-021.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-022.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-023.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-024.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-025.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-026.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-027.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-028.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-029.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-030.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-031.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-032.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-033.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-034.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-035.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-036.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-037.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-038.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-039.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-040.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-041.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-042.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-043.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-044.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-045.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-046.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-047.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-048.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-049.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-050.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-051.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-052.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-053.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-054.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-055.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-056.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-057.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-058.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-059.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-060.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-061.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-062.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-063.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-064.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-065.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-066.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-067.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-068.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-069.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-070.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-071.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-072.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-073.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-074.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-075.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-076.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-077.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-078.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-079.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-080.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-081.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-082.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-083.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-084.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-085.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-086.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-087.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-088.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-089.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-090.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-091.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-092.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-093.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-094.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-095.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-096.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-097.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-098.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-099.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-100.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-101.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-102.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-103.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-104.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-105.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-106.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-107.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-108.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-109.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-110.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-111.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-112.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-113.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-114.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-115.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-116.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-117.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-118.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-119.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-120.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-121.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-122.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-123.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-124.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-125.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-126.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-127.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-128.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-129.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-130.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-131.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-132.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-133.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-134.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-135.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-136.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-137.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-138.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-139.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-140.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-141.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-142.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-143.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-144.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-145.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-146.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-147.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-148.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-149.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-150.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-151.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-152.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-153.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-154.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-155.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+      <div class="gallery-item">
+        <img class="gallery-img" src="../../images/post-office-popup/photo-156.jpg" alt="Greyspace x Uncivilised Records" loading="lazy">
+        <span class="gallery-caption">Greyspace x Uncivilised Records — The Post Office, Stokes Croft</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery image">
+    <button class="lightbox-close" id="gallery-lb-close">Close ✕</button>
+    <button class="gallery-lb-prev" id="gallery-lb-prev" aria-label="Previous">&#8592;</button>
+    <img class="lightbox-img" id="gallery-lb-img" src="" alt="">
+    <button class="gallery-lb-next" id="gallery-lb-next" aria-label="Next">&#8594;</button>
+    <div class="lightbox-info">
+      <span class="lightbox-caption" id="gallery-lb-caption"></span>
+      <span class="lightbox-counter" id="gallery-lb-counter"></span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="../../Icon%20filled_All%20light.png" alt="Grey Space Recordings">
+    </div>
+    <p class="footer-copy">&copy; Grey Space 2026</p>
+    <div class="footer-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/greyspace.uk/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Bandcamp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/></svg></a>
+      <a href="#" aria-label="Soundcloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 8.4A5.5 5.5 0 0 0 15 4a5.45 5.45 0 0 0-3.94 1.68A4 4 0 0 0 8 5a4 4 0 0 0-1.93 7.5A3 3 0 1 0 9 18h11a4 4 0 0 0 .5-7.6z"/></svg></a>
+    </div>
+  </footer>
+
+  <script src="../../splash.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      // #gallery is far taller than the viewport here (156 photos), so the
+      // default 12%-of-height threshold can never be met — use a
+      // any-pixel-visible observer for it instead.
+      const tallObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            tallObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.id === 'gallery') {
+          tallObs.observe(el);
+        } else {
+          obs.observe(el);
+        }
+      });
+    }
+    if (document.body.classList.contains('page-ready')) {
+      initReveal();
+    } else {
+      const mo = new MutationObserver(() => {
+        if (document.body.classList.contains('page-ready')) {
+          mo.disconnect();
+          initReveal();
+        }
+      });
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+
+    // ─── LIGHTBOX ───
+    const lb        = document.getElementById('gallery-lightbox');
+    const lbImg     = document.getElementById('gallery-lb-img');
+    const lbCap     = document.getElementById('gallery-lb-caption');
+    const lbCount   = document.getElementById('gallery-lb-counter');
+    const items     = Array.from(document.querySelectorAll('.gallery-item'));
+    let current     = 0;
+
+    function showSlide(idx) {
+      current = (idx + items.length) % items.length;
+      lbImg.src = items[current].querySelector('.gallery-img').src;
+      lbImg.alt = items[current].querySelector('.gallery-img').alt;
+      const cap = items[current].querySelector('.gallery-caption');
+      lbCap.textContent = cap ? cap.textContent : '';
+      lbCount.textContent = `${current + 1} / ${items.length}`;
+    }
+
+    function openLb(idx) {
+      showSlide(idx);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    items.forEach((item, i) => item.addEventListener('click', () => openLb(i)));
+
+    document.getElementById('gallery-lb-prev').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide(current - 1);
+    });
+
+    document.getElementById('gallery-lb-next').addEventListener('click', e => {
+      e.stopPropagation();
+      showSlide(current + 1);
+    });
+
+    document.getElementById('gallery-lb-close').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  showSlide(current - 1);
+      if (e.key === 'ArrowRight') showSlide(current + 1);
+      if (e.key === 'Escape')     closeLb();
+    });
+  </script>
+
+  <script src="../../cookies.js"></script>
+</body>
+</html>
