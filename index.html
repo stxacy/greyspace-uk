@@ -65,7 +65,6 @@
       position: absolute;
       inset: 0;
       background-size: cover;
-      background-position: center;
       opacity: 0;
       filter: grayscale(45%) brightness(0.55) contrast(1.05);
       transition: opacity 1.6s ease;
@@ -337,22 +336,22 @@
   <section class="hero" id="hero">
     <div class="hero-slides" id="hero-slides" aria-hidden="true">
       <div class="hero-slide" data-src="images/hero/photo-01.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-02.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-03.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-02.jpg?v=2" data-pos="35% center"></div>
+      <div class="hero-slide" data-src="images/hero/photo-03.jpg?v=2" data-pos="42% center"></div>
       <div class="hero-slide" data-src="images/hero/photo-04.jpg?v=2"></div>
       <div class="hero-slide" data-src="images/hero/photo-05.jpg?v=2"></div>
       <div class="hero-slide" data-src="images/hero/photo-06.jpg?v=2"></div>
       <div class="hero-slide" data-src="images/hero/photo-07.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-08.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-09.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-08.jpg?v=2" data-pos="center 28%"></div>
+      <div class="hero-slide" data-src="images/hero/photo-09.jpg?v=2" data-pos="center 52%"></div>
       <div class="hero-slide" data-src="images/hero/photo-10.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-11.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-11.jpg?v=2" data-pos="center 55%"></div>
       <div class="hero-slide" data-src="images/hero/photo-12.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-13.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-14.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-15.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-16.jpg?v=2"></div>
-      <div class="hero-slide" data-src="images/hero/photo-17.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-13.jpg?v=2" data-pos="30% 25%"></div>
+      <div class="hero-slide" data-src="images/hero/photo-14.jpg?v=2" data-pos="60% 78%"></div>
+      <div class="hero-slide" data-src="images/hero/photo-15.jpg?v=2" data-pos="62% 26%"></div>
+      <div class="hero-slide" data-src="images/hero/photo-16.jpg?v=2" data-pos="center 28%"></div>
+      <div class="hero-slide" data-src="images/hero/photo-17.jpg?v=2" data-pos="center 30%"></div>
     </div>
     <div class="hero-tint" aria-hidden="true"></div>
     <div class="hero-scrim" aria-hidden="true"></div>
@@ -484,6 +483,7 @@
         if (!el.style.backgroundImage) {
           await preload(el.dataset.src);
           el.style.backgroundImage = `url('${el.dataset.src}')`;
+          el.style.backgroundPosition = el.dataset.pos || 'center';
         }
         slides.forEach(s => s.classList.remove('active'));
         el.classList.add('active');
