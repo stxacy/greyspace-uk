@@ -45,18 +45,65 @@
 
     /* ─── HERO ─── */
     .hero {
+      position: relative;
       min-height: 100dvh;
-
-      display: grid;
-      grid-template-columns: 1fr 38%;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .hero-left {
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      filter: grayscale(45%) brightness(0.55) contrast(1.05);
+      transition: opacity 1.6s ease;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    .hero-tint {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: var(--accent);
+      opacity: 0.35;
+      mix-blend-mode: color;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 42%, rgba(0,0,0,0.72) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 8rem 3rem 5rem;
-      border-right: 1px solid var(--border);
+      align-items: center;
+      gap: 1.75rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-logo {
+      width: 84px;
+      height: auto;
+      display: block;
     }
 
     .hero-eyebrow {
@@ -64,24 +111,24 @@
       font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.65);
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .hero-eyebrow::before {
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
       content: '';
       width: 18px;
       height: 1px;
-      background: var(--muted);
+      background: rgba(255, 255, 255, 0.4);
       flex-shrink: 0;
     }
 
     .hero-headline {
       font-family: var(--head);
-      font-size: clamp(5.5rem, 15vw, 14rem);
+      font-size: clamp(3.5rem, 11vw, 8rem);
       font-weight: 400;
       line-height: 0.88;
       letter-spacing: 0.01em;
@@ -90,28 +137,52 @@
 
     .hero-sub {
       font-family: var(--head);
-      font-size: clamp(1.5rem, 3.5vw, 3rem);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: var(--accent);
-      margin-top: 0.6rem;
+      margin-top: 0.4rem;
       display: block;
     }
 
-
-    .hero-right {
-      background: var(--accent);
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    .hero-logo-art {
-      width: 65%;
-      max-width: 260px;
-      height: auto;
-      display: block;
-      mix-blend-mode: screen;
+    .hero-scroll-cue::after {
+      content: '';
+      width: 1px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.4);
+      animation: scrollCue 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollCue {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.3; }
+      50%      { transform: scaleY(1);   opacity: 1;   }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide { transition: none; }
+      .hero-scroll-cue::after { animation: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-logo { width: 66px; }
+      .hero-content { gap: 1.25rem; }
     }
 
 
@@ -224,63 +295,6 @@
     .about-body p strong { color: var(--text); font-weight: 500; }
 
 
-    /* ─── MOBILE HERO TEXT (hidden on desktop) ─── */
-    .hero-mobile-label { display: none; }
-
-    /* ─── HERO MOBILE LAYOUT ─── */
-    @media (max-width: 1024px) {
-      .hero {
-        width: 100%;
-        min-height: 100dvh;
-        min-height: 100svh;
-        background: var(--accent);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 6rem 2rem 4rem;
-        gap: 2.5rem;
-        grid-template-columns: none;
-      }
-      .hero-left { display: none !important; }
-      .hero-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-        background: transparent;
-        padding-top: 0;
-        width: 100%;
-      }
-      .hero-logo-art {
-        position: static;
-        width: 55%;
-        max-width: 240px;
-        mix-blend-mode: normal;
-      }
-      .hero-mobile-label {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        text-align: center;
-      }
-      .hero-mobile-eyebrow {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        letter-spacing: 0.28em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.6);
-      }
-      .hero-mobile-name {
-        font-family: var(--head);
-        font-size: clamp(2.8rem, 10vw, 4.5rem);
-        letter-spacing: 0.03em;
-        line-height: 0.9;
-        color: #ffffff;
-      }
-    }
-
     @media (max-width: 768px) {
       .event-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.25rem 0; }
       .event-badge { display: none; }
@@ -320,19 +334,36 @@
   </nav>
 
   <!-- ─── HERO ─── -->
-  <section class="hero">
-    <div class="hero-left">
+  <section class="hero" id="hero">
+    <div class="hero-slides" id="hero-slides" aria-hidden="true">
+      <div class="hero-slide" data-src="images/hero/photo-01.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-02.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-03.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-04.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-05.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-06.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-07.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-08.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-09.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-10.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-11.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-12.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-13.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-14.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-15.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-16.jpg?v=2"></div>
+      <div class="hero-slide" data-src="images/hero/photo-17.jpg?v=2"></div>
+    </div>
+    <div class="hero-tint" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <img class="hero-logo" src="Icon%20filled_All%20light.png" alt="" aria-hidden="true">
       <p class="hero-eyebrow">Underground Music — Bristol, UK</p>
-      <h1 class="hero-headline">Grey<br>Space</h1>
-      <span class="hero-sub">Recordings</span>
+      <h1 class="hero-headline">Grey Space<span class="hero-sub">Recordings</span></h1>
     </div>
-    <div class="hero-right">
-      <img class="hero-logo-art" src="Icon%20filled_All%20light.png" alt="" aria-hidden="true">
-      <div class="hero-mobile-label">
-        <p class="hero-mobile-eyebrow">Underground Music — Bristol, UK</p>
-        <p class="hero-mobile-name">Grey Space<br>Recordings</p>
-      </div>
-    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true">Scroll</div>
   </section>
 
   <!-- ─── MARQUEE ─── -->
@@ -426,6 +457,48 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    // ─── HERO SLIDESHOW ───
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      if (!slides.length) return;
+
+      const order = slides.map((_, i) => i);
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+
+      function preload(src) {
+        return new Promise(resolve => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = src;
+        });
+      }
+
+      let pos = 0;
+      async function showSlide(index) {
+        const el = slides[order[index]];
+        if (!el.style.backgroundImage) {
+          await preload(el.dataset.src);
+          el.style.backgroundImage = `url('${el.dataset.src}')`;
+        }
+        slides.forEach(s => s.classList.remove('active'));
+        el.classList.add('active');
+      }
+
+      showSlide(0);
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        setInterval(() => {
+          pos = (pos + 1) % order.length;
+          showSlide(pos);
+        }, 5500);
+      }
+    })();
 
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
