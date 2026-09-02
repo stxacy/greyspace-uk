@@ -321,7 +321,7 @@
 
     @media (max-width: 768px) {
       .event-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.25rem 0; }
-      .event-badge { display: none; }
+      .event-badge:not([href]) { display: none; }
       .about-inner { grid-template-columns: 1fr; gap: 2rem; }
       .about-quote { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 2rem; }
       .about-stats { grid-template-columns: repeat(2, 1fr); }
