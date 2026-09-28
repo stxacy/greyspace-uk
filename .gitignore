@@ -1,4 +1,4 @@
 .DS_Store
 build-summary.html
-reel-asset.html
+reel-*.html
 _private/
